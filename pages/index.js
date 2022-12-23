@@ -31,7 +31,7 @@ const Home = () => {
 
     setApiOutput(`${slides.text}`);
     setPitchOutput(pitch);
-    setslideArray(slides.text.split(/Slide [0-9]:/));
+    setslideArray(slides.text.split(/Slide [0-9]/));
     setIsGenerating(false);
     generatePresentation();
 
@@ -41,11 +41,15 @@ const Home = () => {
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
       slide.addText(slideArray[i], { x: 0, y: 2.5, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
-      //slide.background = { data: `image/png;base64,${baseImage}`};
+      //slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg" }; // image: url
+
 
     }//end of for loop
-
-    pptx.writeFile({ fileName: "react-demo.pptx" });
+    pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
+  }
+  const downloadSlides = ()=> {
+    
+    
   }
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
@@ -104,19 +108,17 @@ const Home = () => {
               <div className="output-content">
                 <p>{apiOutput}</p>
               </div>
-              <div className="output-header-container">
-                <div className="output-header">
-                  <h3>Presentation</h3>
-                </div>
+              <div className="prompt-buttons">
+            <a
+              className='generate-button'
+              onClick={downloadSlides}
+            >
+              <div className="generate">
+                <p>Download Slides</p>
               </div>
-              <div className="output-content">
-                <ul>
-                  {slideArray.map((slide, index) => {
-                    return <li key={index}>{slide}</li>
-                  })
-                  }
-                </ul>
-              </div>
+            </a>
+          </div>
+              
             </div>
           )}
         </div>
