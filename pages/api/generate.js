@@ -24,7 +24,7 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  Take the pitch and idea of the startup below and generate slides for mission, pain points, revenue model. Make it feel like a story. Don't just list the points. Go deep into each one. Explain why. Include Samuel Jackson's dialogue in the last slide.
+  Take the pitch and idea of the startup below and generate slides for mission, pain points,solution, revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Include Samuel Jackson's dialogue in the last slide.
 
   Idea: ${req.body.userInput}
 

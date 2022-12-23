@@ -33,7 +33,7 @@ const Home = () => {
     setPitchOutput(pitch);
     setslideArray(slides.text.split(/Slide [0-9]/));
     setIsGenerating(false);
-    generatePresentation();
+    //generatePresentation();
 
   }
 
@@ -49,7 +49,15 @@ const Home = () => {
     pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
   }
   const downloadSlides = ()=> {
-    
+    console.log("Slide length: " + slideArray.length);
+    for (let i = 0; i < slideArray.length; i++) {
+      let slide = pptx.addSlide();
+      slide.addText(slideArray[i], { x: 0, y: 2.5, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
+      //slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg" }; // image: url
+
+
+    }//end of for loop
+    pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
     
   }
   const onUserChangedText = (event) => {
@@ -75,7 +83,7 @@ const Home = () => {
         <div className="prompt-container">
           <textarea
             className="prompt-box"
-            placeholder="Type in your startup idea"
+            placeholder="Type in your startup idea. Add Details to it"
             value={userInput}
             onChange={onUserChangedText}
           />;
