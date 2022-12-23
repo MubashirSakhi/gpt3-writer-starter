@@ -120,7 +120,6 @@ body {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     text-transform: none;
-    padding:20px
 }
 
 textarea {
@@ -343,7 +342,7 @@ textarea {
 
     .prompt-container {
         max-width: 600px;
-        width: 100%;
+        width: 90%;
     }
 
     .prompt-box {
@@ -359,7 +358,7 @@ textarea {
 
     .prompt-container {
         max-width: 500px;
-        width: 100%;
+        width: 90%;
     }
 
     .prompt-box {
@@ -391,7 +390,7 @@ textarea {
 
     .prompt-container {
         max-width: 400px;
-        width: 100%;
+        width: 80%;
     }
 
     .prompt-box {

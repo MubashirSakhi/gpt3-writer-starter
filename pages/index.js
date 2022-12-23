@@ -60,6 +60,9 @@ const Home = () => {
     pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
     
   }
+  const downloadInsta = ()=> {
+    console.log("make Insta Video");
+  }
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
   }
@@ -124,6 +127,14 @@ const Home = () => {
             >
               <div className="generate">
                 <p>Download Slides</p>
+              </div>
+            </a>
+            <a
+              className='generate-button'
+              onClick={downloadInsta}
+            >
+              <div className="generate">
+                <p>Download Insta Story</p>
               </div>
             </a>
           </div>
