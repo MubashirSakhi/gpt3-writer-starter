@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import {baseImage} from 'constants';
 import Head from 'next/head';
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
+import pptxgen from "pptxgenjs";
+let pptx = new pptxgen();
+
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [pitchOutput, setPitchOutput] = useState('');
+  const [slideArray, setslideArray] = useState([]);
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
@@ -26,7 +31,21 @@ const Home = () => {
 
     setApiOutput(`${slides.text}`);
     setPitchOutput(pitch);
+    setslideArray(slides.text.split(/Slide [0-9]:/));
     setIsGenerating(false);
+    generatePresentation();
+
+  }
+
+  const generatePresentation = () => {
+    for (let i = 0; i < slideArray.length; i++) {
+      let slide = pptx.addSlide();
+      slide.addText(slideArray[i], { x: 0, y: 2.5, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
+      //slide.background = { data: `image/png;base64,${baseImage}`};
+
+    }//end of for loop
+
+    pptx.writeFile({ fileName: "react-demo.pptx" });
   }
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
@@ -36,7 +55,9 @@ const Home = () => {
       <Head>
         <title>GPT-3 Writer | buildspace</title>
       </Head>
+      <div className="cover-div"></div>
       <div className="container">
+
         <div className="header">
           <div className="header-title">
             <h1>Startup Guru, Samuel Jackson</h1>
@@ -82,6 +103,19 @@ const Home = () => {
               </div>
               <div className="output-content">
                 <p>{apiOutput}</p>
+              </div>
+              <div className="output-header-container">
+                <div className="output-header">
+                  <h3>Presentation</h3>
+                </div>
+              </div>
+              <div className="output-content">
+                <ul>
+                  {slideArray.map((slide, index) => {
+                    return <li key={index}>{slide}</li>
+                  })
+                  }
+                </ul>
               </div>
             </div>
           )}
