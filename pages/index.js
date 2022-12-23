@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {baseImage} from 'constants';
+//import {baseImage} from 'constants';
 import Head from 'next/head';
 import Image from 'next/image';
 import buildspaceLogo from '../assets/buildspace-logo.png';
@@ -38,10 +38,11 @@ const Home = () => {
   }
 
   const generatePresentation = () => {
+    console.log("SLide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
       slide.addText(slideArray[i], { x: 0, y: 2.5, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
-      //slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg" }; // image: url
+      slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg" }; // image: url
 
 
     }//end of for loop
