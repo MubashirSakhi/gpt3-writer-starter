@@ -8,6 +8,16 @@ body {
     background-color: black;
 }
 
+
+.Samuel{
+    background: url('/samuel.png') black no-repeat center center;
+}
+.Scarlett{
+    background: url('/scarlett.png') black no-repeat center center;
+}
+.Kevin{
+    background: url('/kevin.png') black no-repeat center center;
+}
 .root {
     display: flex;
     place-content: center flex-start;
@@ -18,16 +28,8 @@ body {
     overflow: auto;
     padding: 0px;
     position: relative;
+    background-size: cover;
     
-}
-.Samuel{
-    background: url('/samuel.png') black no-repeat center center;
-}
-.Scarlett{
-    background: url('/scarlett.png') black no-repeat center center;
-}
-.Kevin{
-    background: url('/kevin.png') black no-repeat center center;
 }
 .celeb-selection{
     display: flex;
@@ -416,10 +418,12 @@ textarea {
     .container {
         max-width: 400px;
         width: 100%;
+        gap:32px;
+        padding:20px;
     }
-
+    
     .header-title h1 {
-        font-size: 50px;
+        font-size: 48px;
     }
 
     .header-subtitle h2 {
@@ -441,6 +445,9 @@ textarea {
 
     .prompt-box {
         width: 100%;
+    }
+    .celeb-selection{
+        overflow: visible;
     }
 }
 
