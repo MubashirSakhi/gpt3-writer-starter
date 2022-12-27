@@ -23,7 +23,7 @@ const Home = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userInput,celebId:celebrity }),
+      body: JSON.stringify({ userInput, celebId: celebrity }),
     });
 
     const data = await response.json();
@@ -46,8 +46,8 @@ const Home = () => {
     "Kevin Hart",
     "Scarlett Johansson"
   ]
-    
-  
+
+
 
   const handleCelebrityChange = (event) => {
     setCelebrity(event.target.value);
@@ -82,24 +82,24 @@ const Home = () => {
     setUserInput(event.target.value);
   }
   return (
-    <div className={celebrity==""? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
+    <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
       <Head>
         <title>Pitch Wise</title>
       </Head>
       <div className="cover-div"></div>
       <div className="celeb-selection">
-      {celebrity=="" && <h1>Pitch Generator</h1>}
+        {celebrity == "" && <h1>Pitch Generator</h1>}
         <div>
-        <label>Choose a celebrity:</label>
-        <select value={celebrity} onChange={handleCelebrityChange} name="celebrities" id="celebrities">
-          <option value=""></option>
-          <option value="0">Samuel L. Jackson</option>
-          <option value="1">Kevin Hart</option>
-          <option value="2">Scarlett Johansson</option>
+          <label>Choose a celebrity:</label>
+          <select value={celebrity} onChange={handleCelebrityChange} name="celebrities" id="celebrities">
+            <option value=""></option>
+            <option value="0">Samuel L. Jackson</option>
+            <option value="1">Kevin Hart</option>
+            <option value="2">Scarlett Johansson</option>
 
-        </select>
+          </select>
         </div>
-        
+
       </div>
       {
         celebrity != "" && <div className="container">
@@ -160,14 +160,14 @@ const Home = () => {
                       <p>Download Slides</p>
                     </div>
                   </a>
-                  <a
+                  {/* <a
                     className='generate-button'
                     onClick={downloadInsta}
                   >
                     <div className="generate">
                       <p>Download Insta Story</p>
                     </div>
-                  </a>
+                  </a> */}
                 </div>
 
               </div>
