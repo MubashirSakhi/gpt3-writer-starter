@@ -21,7 +21,7 @@ const celebrityPrompts = [
         "prompts":[
             `Write a startup pitch in the style of Scarlett Johanssan for the idea below. Keeping in mind the idea is pitch to pre seed investor to raise first round of money for the startup.
             Idea:`,
-            `Take the pitch and idea of the startup below and generate slides for mission, pain points,solution, revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Include Scarlett's dialogue in the last slide.`
+            `Take the pitch and idea of the startup below and generate slides for mission, pain points,solution, revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Include Scarlett Johansson's dialogue in the last slide.`
         
         ]
     }

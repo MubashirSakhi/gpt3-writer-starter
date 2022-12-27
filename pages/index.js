@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //import {baseImage} from 'constants';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -33,10 +33,10 @@ const Home = () => {
     setApiOutput(`${slides.text}`);
     setPitchOutput(pitch);
     setslideArray(slides.text.split(/Slide [0-9]/));
-    if (slideArray.length <= 1) {
-      setslideArray([]);
-      setslideArray(slides.text.split(/([0-9].)|([0-9]:)/));
-    }
+    // if (slideArray.length <= 1) {
+    //   setslideArray([]);
+    //   setslideArray(slides.text.split(/([0-9].)|([0-9]:)/));
+    // }
     setIsGenerating(false);
     //generatePresentation();
 
@@ -47,7 +47,9 @@ const Home = () => {
     "Scarlett Johansson"
   ]
 
-
+  // useEffect(()=> {
+    
+  // }, apiOutput)
 
   const handleCelebrityChange = (event) => {
     setCelebrity(event.target.value);
@@ -67,7 +69,7 @@ const Home = () => {
     console.log("Slide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
-      slide.addText(slideArray[i], { x: 0, y: 3, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
+      slide.addText(slideArray[i], { x: 0, y: 0.8, w: 10,h:4, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
       slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg", x: 1, y: 2 }; // image: url
       //slide.addImage({ path: "img1.png", x: 1, y: 2 })
 
