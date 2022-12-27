@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Manrope', sans-serif;
-    background: url('/Samuel_Jackson.png') black no-repeat center center;
     background-size: cover;
+    background-color: black;
 }
 
 .root {
@@ -18,6 +18,50 @@ body {
     overflow: auto;
     padding: 0px;
     position: relative;
+    
+}
+.Samuel{
+    background: url('/samuel.png') black no-repeat center center;
+}
+.Scarlett{
+    background: url('/scarlett.png') black no-repeat center center;
+}
+.Kevin{
+    background: url('/kevin.png') black no-repeat center center;
+}
+.celeb-selection{
+    display: flex;
+    flex-direction:column;
+    place-content: center flex-start;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    padding:10px;
+    margin: 10px;
+}
+.celeb-selection h1{
+    color:white;
+    width: 100%;
+    font-weight: 700;
+    font-size: 72px;
+    letter-spacing: 0px;
+    line-height: 1.2em;
+    text-align: center;
+    margin: 0;
+}
+.celeb-selection select{
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin:10px;
+}
+.celeb-selection label{
+    color:white;
+    margin:10px;
 }
 .cover-div{
     background-color: black;
@@ -27,6 +71,7 @@ body {
     background-attachment: fixed;
     width: 100%;
     height: 100%;
+    
 }
 .container {
     display: flex;

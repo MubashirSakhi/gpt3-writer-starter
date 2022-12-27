@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from 'openai';
-
+import celebrityPrompts from './prompts';
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -10,11 +10,11 @@ const basePromptPrefix = `Write a startup pitch in the style of Samuel L. Jackso
 Idea:
 `;
 const generateAction = async (req, res) => {
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
+  console.log(`API: ${celebrityPrompts[req.body.celebId].prompts}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${basePromptPrefix}${req.body.userInput}`,
+    prompt: `${celebrityPrompts[req.body.celebId].prompts[0]}${req.body.userInput}`,
     temperature: 0.8,
     max_tokens: 250,
   });
@@ -24,7 +24,7 @@ const generateAction = async (req, res) => {
   // I build Prompt #2.
   const secondPrompt = 
   `
-  Take the pitch and idea of the startup below and generate slides for mission, pain points,solution, revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Include Samuel Jackson's dialogue in the last slide.
+  ${celebrityPrompts[req.body.celebId].prompts[1]}
 
   Idea: ${req.body.userInput}
 
