@@ -421,7 +421,9 @@ textarea {
         gap:32px;
         padding:20px;
     }
-    
+    .celeb-selection h1{
+        font-size:48px;
+    }
     .header-title h1 {
         font-size: 48px;
     }
