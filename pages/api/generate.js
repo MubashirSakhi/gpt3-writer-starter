@@ -30,7 +30,10 @@ const generateAction = async (req, res) => {
 
   pitch: ${basePromptOutput.text}
 ===BEGIN===
+  User:${req.body.userInput}
+  you:
   Slides:
+  Vertical:  
   `
 
   // I call the OpenAI API a second time with Prompt #2
@@ -44,10 +47,12 @@ const generateAction = async (req, res) => {
   });
 
   // Get the output
+  //let Vertical = secondPromptCompletion.data.choices[0].text.split(/Vertical:\s[A-Za-z]*\n/)[0];
+  //let Slides = secondPromptCompletion.data.choices[0].text.split(/Vertical:\s[A-Za-z]*\n/)[1];
   const secondPromptOutput = secondPromptCompletion.data.choices.pop();
-
+  
   // Send over the Prompt #2's output to our UI instead of Prompt #1's.
-  res.status(200).json({ slides: secondPromptOutput, pitch: basePromptOutput.text });
+  res.status(200).json({ slides: secondPromptOutput, pitch: basePromptOutput.text});
 };
 
 export default generateAction;

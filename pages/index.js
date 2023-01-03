@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 //import {baseImage} from 'constants';
 import Head from 'next/head';
 import Image from 'next/image';
-import buildspaceLogo from '../assets/buildspace-logo.png';
 import pptxgen from "pptxgenjs";
 let pptx = new pptxgen();
-
+import Presentation from './presentation';
+import Investors from './investors';
+import Slides from './slides';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -14,6 +15,7 @@ const Home = () => {
   const [pitchOutput, setPitchOutput] = useState('');
   const [slideArray, setslideArray] = useState([]);
   const [celebrity, setCelebrity] = useState("");
+  const [investors, setInvestors] = useState([]);
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
@@ -28,6 +30,18 @@ const Home = () => {
 
     const data = await response.json();
     const { slides, pitch } = data;
+    const investors = await fetch('/api/airtable', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const investorsData = await investors.json();
+    console.log("investors: " + investorsData);
+    const investorsMapping = investorsData.investorsDb.map((x)=> {
+      return x.fields;
+    });
+    setInvestors(investorsMapping);
     console.log("OpenAI replied...", slides.text)
 
     setApiOutput(`${slides.text}`);
@@ -48,28 +62,17 @@ const Home = () => {
   ]
 
   // useEffect(()=> {
-    
+
   // }, apiOutput)
 
   const handleCelebrityChange = (event) => {
     setCelebrity(event.target.value);
   }
-  const generatePresentation = () => {
-    console.log("Slide length: " + slideArray.length);
-    for (let i = 0; i < slideArray.length; i++) {
-      let slide = pptx.addSlide();
-      slide.addText(slideArray[i], { x: 0, y: 2.5, w: 10, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
-      slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg" }; // image: url
-
-
-    }//end of for loop
-    pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
-  }
   const downloadSlides = () => {
     console.log("Slide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
-      slide.addText(slideArray[i], { x: 0, y: 0.8, w: 10,h:4, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
+      slide.addText(slideArray[i], { x: 0, y: 0.8, w: 10, h: 4, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
       slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg", x: 1, y: 2 }; // image: url
       //slide.addImage({ path: "img1.png", x: 1, y: 2 })
 
@@ -84,6 +87,7 @@ const Home = () => {
     setUserInput(event.target.value);
   }
   return (
+    <div>    
     <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
       <Head>
         <title>Pitch Wise</title>
@@ -175,8 +179,14 @@ const Home = () => {
               </div>
             )}
           </div>
+
         </div>
       }
+      {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />}
+      {apiOutput && <Investors investors={investors}></Investors>}
+      {/* <Slides></Slides> */}
+    </div>
+    
     </div>
   );
 };

@@ -1,0 +1,59 @@
+.carousel{
+    width:80%;
+   background-color: white;
+}
+.row{
+    width:100%;
+}
+.carousel.carousel-control-prev span{
+    background-color:black
+}
+.carousel .carousel-control-next span{
+    background-color:black
+}
+.carousel h1{
+    font-size:102px;
+    font-family:"Poppins";
+    font-weight: bold;
+}
+.carousel h2{
+    font-size:64px;
+    font-family:"Poppins"
+}
+.carousel p{
+    font-size:16px;
+    font-family: "Poppins";
+}
+.numbering h1{
+    font-size:150px;
+}
+.slide1{
+    height:500px
+}
+.slide1 .row{
+    height: 100%;
+}
+.slide1 .upper{
+    height:50%;
+    margin:5%;
+}
+.slide1 .down{
+    height:50%;
+    margin:5%;
+}
+.slide2{
+    height:500px
+}
+.slide1 .row{
+    height:100%;
+} 
+.slide2 img{
+    width: 370px;
+    height: auto;
+}
+.slide2 .upper{
+    height:50%;
+}
+.slide2 .down{
+    height: 50%;
+}
