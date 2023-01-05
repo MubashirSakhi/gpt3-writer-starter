@@ -16,6 +16,7 @@ const Home = () => {
   const [slideArray, setslideArray] = useState([]);
   const [celebrity, setCelebrity] = useState("");
   const [investors, setInvestors] = useState([]);
+  const [vertical, setVertical] = useState("");
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
 
@@ -29,13 +30,14 @@ const Home = () => {
     });
 
     const data = await response.json();
-    const { slides, pitch } = data;
+    const { slides, pitch, verticalOutput } = data;
     const investors = await fetch('/api/airtable', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
+    setVertical(verticalOutput);
     const investorsData = await investors.json();
     console.log("investors: " + investorsData);
     const investorsMapping = investorsData.investorsDb.map((x)=> {
@@ -44,9 +46,10 @@ const Home = () => {
     setInvestors(investorsMapping);
     console.log("OpenAI replied...", slides.text)
 
-    setApiOutput(`${slides.text}`);
+    setApiOutput(slides.join("\n"));
     setPitchOutput(pitch);
-    setslideArray(slides.text.split(/Slide [0-9]/));
+    setslideArray(slides);
+    
     // if (slideArray.length <= 1) {
     //   setslideArray([]);
     //   setslideArray(slides.text.split(/([0-9].)|([0-9]:)/));

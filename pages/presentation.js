@@ -172,7 +172,7 @@ const Presentation = (props) => {
                                     <div className="x8lFvQ Jj59_g" style={{ width: '258.188px', height: '67.0438px', transform: 'translate(60.5435px, 299.402px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '653.029px', height: '169.572px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -3.2px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[1]}</span></p>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[0]}</span></p>
                                         </div>
                                       </div>
                                     </div>
@@ -212,7 +212,7 @@ const Presentation = (props) => {
                                     <div className="x8lFvQ Jj59_g" style={{ width: '250.067px', height: '84.4511px', transform: 'translate(388.477px, 304.477px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '632.487px', height: '213.6px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -3.2px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(0, 0, 0)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(0, 0, 0)', textDecoration: 'none' }}>{props.slides[2]}</span></p>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(0, 0, 0)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(0, 0, 0)', textDecoration: 'none' }}>{props.slides[1]}</span></p>
                                         </div>
                                       </div>
                                     </div>
@@ -298,7 +298,7 @@ const Presentation = (props) => {
                                     <div className="x8lFvQ Jj59_g" style={{ width: '252.56px', height: '84.4511px', transform: 'translate(388.477px, 109.56px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '638.794px', height: '213.6px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -3.2px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(18, 2, 2)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(18, 2, 2)', textDecoration: 'none' }}>{props.slides[3]}</span></p>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(18, 2, 2)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(18, 2, 2)', textDecoration: 'none' }}>{props.slides[2]}</span></p>
                                         </div>
                                       </div>
                                     </div>
@@ -440,14 +440,14 @@ const Presentation = (props) => {
                                     <div className="x8lFvQ Jj59_g" style={{ width: '310.09px', height: '67.0548px', transform: 'translate(388.477px, 312.965px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '784.303px', height: '169.6px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -3.2px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg vZU7QQ RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[4]}</span></p>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg vZU7QQ RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[3]}</span></p>
                                         </div>
                                       </div>
                                     </div>
                                     <div className="x8lFvQ Jj59_g" style={{ width: '172.01px', height: '119.926px', transform: 'translate(388.477px, 60.3282px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '435.059px', height: '303.326px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -25.3333px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '253.333px', color: 'rgb(255, 255, 255)', lineHeight: '354px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 700, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>07</span>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '253.333px', color: 'rgb(255, 255, 255)', lineHeight: '354px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 700, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>04</span>
                                           </p>
                                         </div>
                                       </div>
@@ -526,7 +526,7 @@ const Presentation = (props) => {
                                     <div className="x8lFvQ Jj59_g" style={{ width: '252.56px', height: '67.0301px', transform: 'translate(388.477px, 289.171px)' }}>
                                       <div className="nLlVEw Op_PdA _c0ZTA" style={{ writingMode: 'horizontal-tb', width: '638.794px', height: '169.538px', transform: 'scale(0.39537)', transformOrigin: '0px 0px 0px' }}>
                                         <div className="_3stTEQ imh8lg IPnEEQ" style={{ transform: 'translate(0px, -3.2px)' }} lang="en">
-                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[5]}</span></p>
+                                          <p style={{ fontFamily: '"Poppins", "_fb_", "auto"', fontSize: '24px', color: 'rgb(255, 255, 255)', lineHeight: '44px', letterSpacing: '0em', paraSpacing: 0, textTransform: 'none', headIndent: 0, numericListMarker: 'none', listStyleType: 'none' }} className="ok-Wdg UPenfA RVfbug"><span className="S1PPyQ" style={{ fontWeight: 400, fontStyle: 'normal', color: 'rgb(255, 255, 255)', textDecoration: 'none' }}>{props.slides[4]}</span></p>
                                         </div>
                                       </div>
                                     </div>

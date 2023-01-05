@@ -462,6 +462,27 @@ textarea {
 
 
  /* Loading ring animation */
+ /* Loading ring animation */
+.loader {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 2px solid #FFF;
+    border-right: 2px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
  @import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Poppins:wght@400;500;700&display=swap');
  ._682gpw {
      -webkit-user-select:none;

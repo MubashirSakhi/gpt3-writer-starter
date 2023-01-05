@@ -33,7 +33,7 @@ const Investors = (props) => {
                                             <td> {index + 1}</td>
                                             <td> {x["Investor Name"]}</td>
                                             <td> <Link href={x["Website (if available)"]}>{x["Website (if available)"]}</Link></td>
-                                            <td> {x["Fund Type"]}</td>
+                                            <td> {x["FundType"]}</td>
                                         </tr>
                                     )
                                 })}

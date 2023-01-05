@@ -1,5 +1,5 @@
 import axios from "axios";
-const pitchAirTableUrl = "https://api.airtable.com/v0/appedwFL33qeN8Rwt/tblPc8BEPULiAmAd5?maxRecords=20&fields%5B%5D=FundStage&fields%5B%5D=Investor+Name&fields%5B%5D=Fund+Type&fields%5B%5D=Website+(if+available)&filterByFormula=SEARCH('Pre-Seed', ARRAYJOIN(FundStage))";
+const pitchAirTableUrl = "https://api.airtable.com/v0/appedwFL33qeN8Rwt/tblPc8BEPULiAmAd5?maxRecords=20&fields%5B%5D=FundStage&fields%5B%5D=Investor+Name&fields%5B%5D=FundType&fields%5B%5D=Website+(if+available)&filterByFormula=SEARCH('Pre-Seed', ARRAYJOIN(FundStage))";
 
 const airtable = async (req, res) => {
  
