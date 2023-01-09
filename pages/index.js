@@ -187,7 +187,7 @@ const Home = () => {
       }
       {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />}
       {apiOutput && <Investors investors={investors}></Investors>}
-      {/* <Slides></Slides> */}
+      <Slides></Slides>
     </div>
     
     </div>

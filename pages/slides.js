@@ -8,9 +8,77 @@ import Carousel from 'react-bootstrap/Carousel';
 import Classes from './slides.module.css';
 
 const Slides = (props) => {
+    const [introductionText, setIntroductionText] = useState("");
+    const [introductionImage, setIntroductionImage] = useState("");
+
+    const [problemText, setProblemText] = useState("");
+    const [problemImage, setProblemImage] = useState("");
+
+    const [solutionText, setSolutionText] = useState("");
+    const [solutionImage, setSolutionImage] = useState("");
+
+    const [competitionText, setCompetitionText] = useState("");
+    const [competitionImage, setCompetitionImage] = useState("");
+
+    const [productText, setProductText] = useState("");
+    const [productImage, setProductImage] = useState("");
+
+    const [revenueText, setRevenueText] = useState("");
+    const [revenueImage, setRevenueImage] = useState("");
+
+    const [thanksText, setThankstext] = useState("");
+    const [thanksImage, setThanksImage] = useState("");
+
+    const generateImg = () => {
+
+    }
+    const rephrase = async (slideText, slideName) => {
+        const rephraseSlide = await fetch('/api/rephrased', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ idea: props.idea, slideText: slideText }),
+        });
+        const rephrasedData = await rephraseSlide.json();
+        switch (slideName) {
+            case "introduction":
+                setIntroductionText(rephrasedData);
+                break;
+            case "problem":
+                setProblemText(rephrasedData);
+                break;
+            case "solution":
+                setSolutionText(rephrasedData);
+                break;
+            case "competition":
+                setProductText(rephrasedData);
+                break;
+            case "competition":
+                setCompetitionText(rephrasedData);
+                break;
+            case "revenue":
+                setRevenueText(rephrasedData);
+                break;
+            case "thanks":
+                setThanksText(rephrasedData);
+                break;
+        }
+
+
+    }
+    useEffect(() => {
+        // setIntroductionText(props.idea);
+        // setProblemText(props.slides[0]);
+        // setSolutionText(props.slides[1]);
+        // setProductText(props.slides[2]);
+        // setCompetitionText(props.slides[3]);
+        // setRevenueText(props.slides[4]);
+        // setThankstext(props.slides[5]);
+    })
     return (
         <Carousel className={Classes.carousel}>
-            {/* <Carousel.Item>
+            <Carousel.Item>
                 <Container className={Classes.slide1}>
                     <Row className={Classes.row}>
                         <Col md={5}>
@@ -23,12 +91,28 @@ const Slides = (props) => {
                             </div>
                         </Col>
                         <Col md={7}>
-                           
+
                         </Col>
                     </Row>
+
+                    <div className={Classes.generateBox}>
+                        <div className="prompt-buttons">
+
+                            <a className='generate-button' onClick={rephrase(introductionText,'introduction')}>
+                                Rephrase Text of this Slide
+                            </a>
+                        </div>
+                        <input type="text" placeholder="Type prompt to generate new image for this slide" />
+                        <div className="prompt-buttons">
+                            <a className='generate-button'>
+                                Generate
+                            </a>
+                            
+                        </div>
+                    </div>
                 </Container>
-            </Carousel.Item> */}
-            <Carousel.Item>
+            </Carousel.Item>
+            {/* <Carousel.Item>
                 <Container className={Classes.slide2}>
                     <Row className={Classes.row}>
                         <Col md={6}>
@@ -41,18 +125,18 @@ const Slides = (props) => {
                             </div>
                         </Col>
                         <Col md={6}>
-                            <img src="https://media-public.canva.com/MADQ48WrPrg/1/screen_2x.jpg"></img>
+                            <img className="img-fluid" src="https://media-public.canva.com/MADQ48WrPrg/1/screen_2x.jpg"></img>
                         </Col>
                     </Row>
                 </Container>
             </Carousel.Item>
-            {/*<Carousel.Item>
+            <Carousel.Item>
                 <Container className={Classes.slide3}>
                     <Row>
-                        <Col md={5}>
+                        <Col md={6}>
                             <img src="https://media-public.canva.com/kcQAY/MAD7HtkcQAY/1/s3.jpg"></img>
                         </Col>
-                        <Col md={7}>
+                        <Col md={6}>
                             <div className={Classes.numbering}>
                                 <h1>02</h1>
                             </div>

@@ -19,7 +19,7 @@ body {
     background: url('/kevin.png') black no-repeat center center;
 }
 .root {
-    display: flex;
+    display: block;
     place-content: center flex-start;
     align-items: center;
     flex-flow: column nowrap;

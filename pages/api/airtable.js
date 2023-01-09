@@ -11,6 +11,9 @@ const airtable = async (req, res) => {
       }
   });
   console.log("I: " +investors.data.records);
+  if(investors.data.records.length <= 0){
+    console.log("call airtable without fund focus")
+  }
    
   // Send over the Prompt #2's output to our UI instead of Prompt #1's.
   res.status(200).json({ investorsDb:investors.data.records });

@@ -1,59 +1,107 @@
-.carousel{
-    width:80%;
-   background-color: white;
+.carousel {
+    background-color: white;
+    height: 600px;
 }
-.row{
-    width:100%;
+
+.carousel img {
+    height: 400px;
 }
-.carousel.carousel-control-prev span{
-    background-color:black
+
+.slide5 img {
+    height: 50px
 }
-.carousel .carousel-control-next span{
-    background-color:black
+
+.row {
+    width: 100%;
 }
-.carousel h1{
-    font-size:102px;
-    font-family:"Poppins";
+
+.generateBox {
+    width: 50%;
+    background-color: black;
+    text-align: center;
+    border-radius: 25px;
+    padding: 5px;
+}
+.generateBox input{
+    width: 80%;
+background-color: transparent;
+border:none;
+border-bottom: 1px solid gray;
+margin: 10px 20px;
+color: white;
+padding-top: 10px;
+font-size: 16px;
+}
+.generateBox input:focus{
+    border: none;
+    
+}
+.generateBox a{
+    color:white;
+    margin: 10px;
+    padding:10px
+}
+
+.carousel.carousel-control-prev span {
+    background-color: black
+}
+
+.carousel .carousel-control-next span {
+    background-color: black
+}
+
+.carousel h1 {
+    font-size: 102px;
+    font-family: "Poppins";
     font-weight: bold;
 }
-.carousel h2{
-    font-size:64px;
-    font-family:"Poppins"
+
+.carousel h2 {
+    font-size: 64px;
+    font-family: "Poppins"
 }
-.carousel p{
-    font-size:16px;
+
+.carousel p {
+    font-size: 16px;
     font-family: "Poppins";
 }
-.numbering h1{
-    font-size:150px;
+
+.numbering h1 {
+    font-size: 150px;
 }
-.slide1{
+
+/* .slide1{
     height:500px
-}
-.slide1 .row{
+} */
+.slide1 .row {
     height: 100%;
 }
-.slide1 .upper{
+
+/* .slide1 .upper{
     height:50%;
     margin:5%;
 }
 .slide1 .down{
     height:50%;
     margin:5%;
+} */
+.slide2 {
+    height: 500px
 }
-.slide2{
-    height:500px
+
+.slide1 .row {
+    height: 100%;
 }
-.slide1 .row{
-    height:100%;
-} 
-.slide2 img{
-    width: 370px;
+
+.slide2 img {
     height: auto;
+    height: 400px;
 }
-.slide2 .upper{
-    height:50%;
+
+.slide2 .upper {
+    height: 50%;
 }
-.slide2 .down{
+
+.slide2 .down {
     height: 50%;
 }
