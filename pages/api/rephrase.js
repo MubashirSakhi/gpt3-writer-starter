@@ -8,9 +8,10 @@ const openai = new OpenAIApi(configuration);
 
 
 const rephrase = async (req, res) => {
-    const promptText = `Rephrase keeping this idea as a reference
-Idea:${req.body.idea}
+    const promptText = `Rephrase keeping this idea below as a reference
+Idea:${req.body.userInput}
 Phrase: ${req.body.slideText}
+Rephrase:
 `;
     const baseCompletion = await openai.createCompletion({
         model: 'text-davinci-003',

@@ -16,7 +16,7 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${celebrityPrompts[req.body.celebId].prompts[0]}${req.body.userInput}`,
     temperature: 0.8,
-    max_tokens: 250,
+    max_tokens: 150,
   });
 
   const basePromptOutput = baseCompletion.data.choices.pop();
@@ -36,8 +36,7 @@ you:
 “Slide2”: “A web platform where users can rent out their space to host travelers to Save Money when traveling,Make Money when hosting ,Share Culture and local connection to the city”,
 “Slide3”: “Product. A website that lets you search by city, review listings and then decide which place to book.”,
 “Slide4”: “Competition: Hotels, hostels and motels are our competition but we are most affordable and we process online transactions easily”.
-“Slide5”: “Revenue Model: We take a 10% commission on each transaction”,
-"Slide6": "Market Size: $200 billion is the market size"     
+“Slide5”: “Revenue Model: We take a 10% commission on each transaction”     
 }
 
 ===BEGIN===
@@ -54,15 +53,22 @@ you:
     max_tokens: 1250,
   });
   let outputArray = secondPromptCompletion.data.choices[0].text.split('\n');
-  let Vertical = outputArray[1].split(/.Vertical.\s*:/)[1];
-  Vertical = Vertical.replace(",", '');
-  let Slides = outputArray.slice(2,outputArray.length - 1);
-  //let secondPromptOutput = secondPromptCompletion.data.choices.pop();
-  Slides = Slides.map((slide)=>{
-    return slide.split(/Slide[0-9].\s*:/)[1];
-  });
-  // Send over the Prompt #2's output to our UI instead of Prompt #1's.
-  res.status(200).json({ slides: Slides, pitch: basePromptOutput.text,verticalOutput:Vertical});
+  if (secondPromptCompletion.status == 200) {
+    let Vertical = outputArray[1].split(/.Vertical.\s*:/)[1];
+    Vertical = Vertical.replace(",", '');
+    let Slides = outputArray.slice(2, outputArray.length - 1);
+    //let secondPromptOutput = secondPromptCompletion.data.choices.pop();
+    Slides = Slides.map((slide) => {
+      return slide.split(/Slide[0-9].\s*:/)[1];
+    });
+    // Send over the Prompt #2's output to our UI instead of Prompt #1's.
+
+    res.status(200).json({ slides: Slides, pitch: basePromptOutput.text, verticalOutput: Vertical });
+  }
+  else{
+    res.status(secondPromptCompletion.status).json({error:"something went wrong"});
+  } 
+      
 };
 
 export default generateAction;

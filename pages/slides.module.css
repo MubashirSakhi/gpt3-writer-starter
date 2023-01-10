@@ -1,26 +1,28 @@
 .carousel {
     background-color: white;
-    height: 600px;
+    
 }
-
-.carousel img {
-    height: 400px;
+.carouselItem{
+    height:600px;
 }
+/* .carousel img {
+    height: 512px;
+} */
 
-.slide5 img {
+/* .slide5 img {
     height: 50px
-}
+} */
 
 .row {
     width: 100%;
 }
 
 .generateBox {
-    width: 50%;
     background-color: black;
     text-align: center;
     border-radius: 25px;
     padding: 5px;
+   
 }
 .generateBox input{
     width: 80%;
@@ -85,18 +87,18 @@ font-size: 16px;
     height:50%;
     margin:5%;
 } */
-.slide2 {
+/* .slide2 {
     height: 500px
-}
+} */
 
 .slide1 .row {
     height: 100%;
 }
-
+/* 
 .slide2 img {
     height: auto;
     height: 400px;
-}
+} */
 
 .slide2 .upper {
     height: 50%;
