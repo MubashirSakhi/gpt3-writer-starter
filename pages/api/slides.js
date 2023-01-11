@@ -16,7 +16,7 @@ const slides = async (req, res) => {
       "clip_guidance_preset": "FAST_BLUE",
       "height": 512,
       "width": 512,
-      "samples": 1,
+        "samples": 1,
       "steps": 50,
       "text_prompts": [
         {

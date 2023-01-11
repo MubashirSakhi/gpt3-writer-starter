@@ -26,7 +26,7 @@ const Slides = (props) => {
     const [revenueText, setRevenueText] = useState("");
     const [revenueImage, setRevenueImage] = useState("https://media-public.canva.com/MADGx9dqdxU/4/screen_2x.jpg");
 
-    const [thanksText, setThankstext] = useState("");
+    const [thanksText, setThanksText] = useState("");
     const [thanksImage, setThanksImage] = useState("https://images.pexels.com/photos/3321793/pexels-photo-3321793.jpeg");
     const [active, setActive] = useState(0);
     const [imageText, setImageText] = useState("");
@@ -155,7 +155,7 @@ const Slides = (props) => {
         setProductText(props.slides[2]);
         setCompetitionText(props.slides[3]);
         setRevenueText(props.slides[4]);
-        setThankstext(props.slides[5]);
+        setThanksText(props.slides[5]);
     }, [])
     return (
         <>
