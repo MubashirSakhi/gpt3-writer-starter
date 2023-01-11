@@ -100,10 +100,40 @@ font-size: 16px;
     height: 400px;
 } */
 
-.slide2 .upper {
+/* .slide2 .upper {
     height: 50%;
 }
 
 .slide2 .down {
     height: 50%;
+} */
+@media (min-width: 810px) and (max-width: 1199px) {
+
+}
+@media (max-width: 809px) {
+
+}
+@media (max-width: 600px) {
+    .carouselItem{
+        height:800px;
+    }
+    .carousel h1 {
+        font-size: 48px;
+        font-family: "Poppins";
+        font-weight: bold;
+    }
+    
+    .carousel h2 {
+        font-size: 36px;
+        font-family: "Poppins"
+    }
+    
+    .carousel p {
+        font-size: 16px;
+        font-family: "Poppins";
+    }
+    
+    .numbering h1 {
+        font-size: 64px;
+    }
 }

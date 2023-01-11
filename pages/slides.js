@@ -18,7 +18,7 @@ const Slides = (props) => {
     const [solutionImage, setSolutionImage] = useState("");
 
     const [competitionText, setCompetitionText] = useState("");
-    const [competitionImage, setCompetitionImage] = useState("/icon0.png");
+    const [competitionImage, setCompetitionImage] = useState("https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg");
 
     const [productText, setProductText] = useState("");
     const [productImage, setProductImage] = useState("");
@@ -30,7 +30,8 @@ const Slides = (props) => {
     const [thanksImage, setThanksImage] = useState("https://images.pexels.com/photos/3321793/pexels-photo-3321793.jpeg");
     const [active, setActive] = useState(0);
     const [imageText, setImageText] = useState("");
-
+    const [isImageGenerating, setImageGenerating] = useState(false);
+    const [isRephrasing, setIsRephrasing] = useState(false);
     const [imagePrompt, setImagePrompt] = useState("");
 
     const handlePromptChange = (event) => {
@@ -38,6 +39,7 @@ const Slides = (props) => {
     }
     const generateImg = async () => {
         let slideIndex = active;
+        setImageGenerating(true);
         const changeImage = await fetch('/api/slides', {
             method: 'POST',
             headers: {
@@ -73,10 +75,11 @@ const Slides = (props) => {
             default:
                 console.log(generatedImage)
         }
+        setImageGenerating(false);
     }
     const rephrase = async () => {
         let slideIndex = active;
-
+        setIsRephrasing(true);
         let slideText = "";
         switch (slideIndex) {
             case 1:
@@ -138,6 +141,7 @@ const Slides = (props) => {
             default:
                 console.log(rephrasedData)
         }
+        setIsRephrasing(false);
 
 
     }
@@ -305,15 +309,15 @@ const Slides = (props) => {
                         <div className={Classes.generateBox}>
                             {active !== 0 && <div className="prompt-buttons">
 
-                                <a className='generate-button' onClick={rephrase}>
-                                    Rephrase Text of this Slide
+                                <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
+                                    {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
                                 </a>
                             </div>}
                             {active !== 0 && active !== 3 && <div>
                                 <input type="text" placeholder="Type prompt to generate new image for this slide" onChange={handlePromptChange} />
                                 <div className="prompt-buttons">
-                                    <a className='generate-button' onClick={generateImg}>
-                                        Generate
+                                    <a className={isImageGenerating ? 'generate-button loading' : 'generate-button'} onClick={generateImg}>
+                                    {isImageGenerating ? <span className="loader"></span> :"Generate"}
                                     </a>
 
                                 </div>

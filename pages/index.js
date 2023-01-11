@@ -111,7 +111,7 @@ const Home = () => {
           <title>Pitch Wise</title>
         </Head>
         <div className="cover-div"></div>
-        <div className="celeb-selection">
+        <div className={celebrity==""?"celeb-selection":"celeb-selection dynamic"}>
           {celebrity == "" && <h1>Pitch Generator</h1>}
           <div>
             <label>Choose a celebrity:</label>
@@ -200,7 +200,7 @@ const Home = () => {
 
           </div>
         }
-        {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />}
+        {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
         {apiOutput && <Investors investors={investors}></Investors>}
         {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>}
       </div>
