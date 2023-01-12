@@ -7,6 +7,7 @@ let pptx = new pptxgen();
 import Presentation from './presentation';
 import Investors from './investors';
 import Slides from './slides';
+import * as ga from'./lib/ga';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -23,7 +24,12 @@ const Home = () => {
     try {
       setError(null);
       setIsGenerating(true);
-
+      ga.event({
+        action: "generate_slides",
+        params : {
+          user_prompt: userInput
+        }
+      })
       console.log("Calling OpenAI...")
       const response = await fetch('/api/generate', {
         method: 'POST',
