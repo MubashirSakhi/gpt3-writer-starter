@@ -7,7 +7,7 @@ let pptx = new pptxgen();
 import Presentation from './presentation';
 import Investors from './investors';
 import Slides from './slides';
-import * as ga from'./lib/ga';
+import * as ga from'../lib/ga';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
