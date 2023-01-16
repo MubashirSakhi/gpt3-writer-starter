@@ -1,0 +1,49 @@
+.container {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    max-width: 100%;
+}
+
+.row {
+    height: 100%;
+    margin: 0px;
+    text-align: left;
+}
+
+.container .column {
+    padding: 5% 5% 5% 5%;
+}
+
+.shadow {
+    position: absolute;
+    background-color: #595959;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.content h1 {
+    font-size: 48px;
+    font-family: 'Sen';
+    color: white;
+}
+
+.content p {
+    font-size: 30px;
+    font-family: 'Sen';
+    font-weight: 500;
+    color: white
+}
+
+.layoutImage {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gap {
+    height: 100px;
+    width: 100px;
+}

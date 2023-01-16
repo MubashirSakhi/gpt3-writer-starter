@@ -1,0 +1,7 @@
+.carousel {
+    background-color: white;
+    
+}
+.carouselItem{
+    height:calc(80vw/2);
+}

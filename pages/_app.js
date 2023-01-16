@@ -1,6 +1,7 @@
 import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Script from 'next/script';
+import { SessionProvider } from "next-auth/react";
 function App({ Component, pageProps }) {
   return (
     <>
@@ -19,7 +20,10 @@ function App({ Component, pageProps }) {
         `,
         }}
       />
-      <Component {...pageProps} />
+      <SessionProvider session={pageProps.session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+
     </>
   )
 }

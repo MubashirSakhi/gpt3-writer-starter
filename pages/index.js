@@ -7,7 +7,11 @@ let pptx = new pptxgen();
 import Presentation from './presentation';
 import Investors from './investors';
 import Slides from './slides';
-import * as ga from'../lib/ga';
+import * as ga from '../lib/ga';
+import Header from '../components/Header';
+import { useSession } from 'next-auth/react';
+import Editor from './components/editor';
+import Samples from './samples';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -19,6 +23,7 @@ const Home = () => {
   const [investors, setInvestors] = useState([]);
   const [vertical, setVertical] = useState("");
   const [error, setError] = useState(null);
+  const { data: session, status } = useSession()
 
   const callGenerateEndpoint = async () => {
     try {
@@ -26,7 +31,7 @@ const Home = () => {
       setIsGenerating(true);
       ga.event({
         action: "generate_slides",
-        params : {
+        params: {
           user_prompt: userInput
         }
       })
@@ -111,86 +116,89 @@ const Home = () => {
     setUserInput(event.target.value);
   }
   return (
-    <div>
-      <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
-        <Head>
-          <title>Pitch Wise</title>
-        </Head>
-        <div className="cover-div"></div>
-        <div className={celebrity==""?"celeb-selection":"celeb-selection dynamic"}>
-          {celebrity == "" && <h1>Pitch Generator</h1>}
-          <div>
-            <label>Choose a celebrity:</label>
-            <select value={celebrity} onChange={handleCelebrityChange} name="celebrities" id="celebrities">
-              <option value=""></option>
-              <option value="0">Samuel L. Jackson</option>
-              <option value="1">Kevin Hart</option>
-              <option value="2">Scarlett Johansson</option>
+    <>
+      {/* <Header /> */}
+      {/* {session && <div> */}
+      <div>
+        <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
+          <Head>
+            <title>Pitch Wise</title>
+          </Head>
+          <div className="cover-div"></div>
+          <div className={celebrity == "" ? "celeb-selection" : "celeb-selection dynamic"}>
+            {celebrity == "" && <h1>Pitch Generator</h1>}
+            <div>
+              <label>Choose a celebrity:</label>
+              <select value={celebrity} onChange={handleCelebrityChange} name="celebrities" id="celebrities">
+                <option value=""></option>
+                <option value="0">Samuel L. Jackson</option>
+                <option value="1">Kevin Hart</option>
+                <option value="2">Scarlett Johansson</option>
 
-            </select>
-          </div>
-
-        </div>
-        {
-          celebrity != "" && <div className="container">
-
-            <div className="header">
-              <div className="header-title">
-                <h1>Startup Guru, {celebrityMapping[celebrity]}</h1>
-              </div>
-              <div className="header-subtitle">
-                <h2>How would {celebrityMapping[celebrity]} Pitch your Startup Idea</h2>
-              </div>
+              </select>
             </div>
 
-            {/* Add this code here*/}
-            <div className="prompt-container">
-              <textarea
-                className="prompt-box"
-                placeholder="Type in your startup idea. Add Details to it"
-                value={userInput}
-                onChange={onUserChangedText}
-              />;
-              {/* New code I added here */}
-              <div className="prompt-buttons">
-                <a
-                  className={isGenerating ? 'generate-button loading' : 'generate-button'}
-                  onClick={callGenerateEndpoint}
-                >
-                  <div className="generate">
-                    {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
-                  </div>
-                </a>
+          </div>
+          {
+            celebrity != "" && <div className="container">
+
+              <div className="header">
+                <div className="header-title">
+                  <h1>Startup Guru, {celebrityMapping[celebrity]}</h1>
+                </div>
+                <div className="header-subtitle">
+                  <h2>How would {celebrityMapping[celebrity]} Pitch your Startup Idea</h2>
+                </div>
               </div>
-              {/* New code I added here */}
-              {apiOutput && (
-                <div className="output">
-                  <div className="output-header-container">
-                    <div className="output-header">
-                      <h3>Pitch</h3>
+
+              {/* Add this code here*/}
+              <div className="prompt-container">
+                <textarea
+                  className="prompt-box"
+                  placeholder="Type in your startup idea. Add Details to it"
+                  value={userInput}
+                  onChange={onUserChangedText}
+                />;
+                {/* New code I added here */}
+                <div className="prompt-buttons">
+                  <a
+                    className={isGenerating ? 'generate-button loading' : 'generate-button'}
+                    onClick={callGenerateEndpoint}
+                  >
+                    <div className="generate">
+                      {isGenerating ? <span className="loader"></span> : <p>Generate</p>}
                     </div>
-                  </div>
-                  <div className="output-content">
-                    <p>{pitchOutput}</p>
-                  </div>
-                  <div className="output-header-container">
-                    <div className="output-header">
-                      <h3>Slides</h3>
-                    </div>
-                  </div>
-                  <div className="output-content">
-                    <p>{apiOutput}</p>
-                  </div>
-                  <div className="prompt-buttons">
-                    <a
-                      className='generate-button'
-                      onClick={downloadSlides}
-                    >
-                      <div className="generate">
-                        <p>Download Slides</p>
+                  </a>
+                </div>
+                {/* New code I added here */}
+                {apiOutput && (
+                  <div className="output">
+                    <div className="output-header-container">
+                      <div className="output-header">
+                        <h3>Pitch</h3>
                       </div>
-                    </a>
-                    {/* <a
+                    </div>
+                    <div className="output-content">
+                      <p>{pitchOutput}</p>
+                    </div>
+                    <div className="output-header-container">
+                      <div className="output-header">
+                        <h3>Slides</h3>
+                      </div>
+                    </div>
+                    <div className="output-content">
+                      <p>{apiOutput}</p>
+                    </div>
+                    <div className="prompt-buttons">
+                      <a
+                        className='generate-button'
+                        onClick={downloadSlides}
+                      >
+                        <div className="generate">
+                          <p>Download Slides</p>
+                        </div>
+                      </a>
+                      {/* <a
                     className='generate-button'
                     onClick={downloadInsta}
                   >
@@ -198,20 +206,23 @@ const Home = () => {
                       <p>Download Insta Story</p>
                     </div>
                   </a> */}
+                    </div>
+
                   </div>
+                )}
+              </div>
 
-                </div>
-              )}
             </div>
-
-          </div>
-        }
-        {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
-        {apiOutput && <Investors investors={investors}></Investors>}
-        {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>}
+          }
+          {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
+          {apiOutput && <Investors investors={investors}></Investors>}
+          {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>}
+          {/* <Editor/> */}
+          <Samples/>
+        </div>
       </div>
-
-    </div>
+      {/* </div>} */}
+    </>
   );
 };
 

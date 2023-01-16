@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Carousel from 'react-bootstrap/Carousel';
 import Classes from './slides.module.css';
 
+
 const Slides = (props) => {
     const [introductionText, setIntroductionText] = useState("");
     const [introductionImage, setIntroductionImage] = useState("https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg");
