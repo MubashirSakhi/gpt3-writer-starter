@@ -11,6 +11,7 @@ export default function Document() {
           content="https://res.cloudinary.com/dusjh0hzg/image/upload/v1672820088/pitch_wise_og_q5l52u.png"
         />
         <meta name="twitter:card" content="summary_large_image"></meta>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <body>
         <Main />

@@ -24,8 +24,11 @@
     padding: 5px;
    
 }
+.rephraseBox {
+    background-color: none;
+}
 .generateBox input{
-    width: 80%;
+width: 80%;
 background-color: transparent;
 border:none;
 border-bottom: 1px solid gray;

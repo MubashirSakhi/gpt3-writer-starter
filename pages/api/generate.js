@@ -61,6 +61,7 @@ you:
     Slides = Slides.map((slide) => {
       return slide.split(/Slide[0-9].\s*:/)[1];
     });
+    
     // Send over the Prompt #2's output to our UI instead of Prompt #1's.
 
     res.status(200).json({ slides: Slides, pitch: basePromptOutput.text, verticalOutput: Vertical });

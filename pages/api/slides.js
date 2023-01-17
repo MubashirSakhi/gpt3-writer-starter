@@ -14,19 +14,39 @@ const slides = async (req, res) => {
     data: {
       "cfg_scale": 7,
       "clip_guidance_preset": "FAST_BLUE",
-      "height": 512,
-      "width": 512,
-        "samples": 1,
+      "height": 1062,
+      "width": 600,
+      "samples": 1,
       "steps": 50,
       "text_prompts": [
         {
           "text": req.body.text,
+          "weight": 1,
+
+        },
+        {
+          "text": ". Conceptual Art.",
+          "weight:": 1,
+        },
+        {
+          "text": " Centered.",
           "weight": 1
-        }]
+        },
+        {
+          "text": "By disney",
+          "weight": 0.8
+        },
+        {
+          "text": "words and sentences",
+          "weight": -1.0
+        }
+
+
+      ]
     }
   });
-  if(slideImage.status == 200){
-    res.status(200).json({ generatedImage: slideImage.data.artifacts[0] });  
+  if (slideImage.status == 200) {
+    res.status(200).json({ generatedImage: slideImage.data.artifacts[0] });
   }
   else if (response.status === 503) {
     const json = await response.json();

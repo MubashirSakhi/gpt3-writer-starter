@@ -1,7 +1,71 @@
 .carousel {
     background-color: white;
-    
+
 }
-.carouselItem{
-    height:calc(80vw/2);
+
+.carouselItem {
+    height: calc(80vw/1.9);
+}
+
+.heading {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.layoutSelector div {
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.activeLayout {
+    font-size: 20px;
+    border: 3px solid white;
+}
+
+.layoutSelector h5 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.generateBox {
+    background-color: black;
+    text-align: center;
+    border-radius: 25px;
+    padding: 5px;
+
+}
+.generateRow {
+    width: 100%;
+}
+.generateBox input {
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin: 10px 20px;
+    color: white;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.generateBox input:focus {
+    border: none;
+
+}
+
+.generateBox a {
+    color: white;
+    margin: 10px;
+    padding: 10px
 }

@@ -67,6 +67,7 @@ const Home = () => {
 
       setApiOutput(slides.join("\n"));
       setPitchOutput(pitch);
+      
       setslideArray(slides);
 
       // if (slideArray.length <= 1) {
@@ -109,9 +110,7 @@ const Home = () => {
     pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
 
   }
-  const downloadInsta = () => {
-    console.log("make Insta Video");
-  }
+  
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
   }
@@ -125,6 +124,7 @@ const Home = () => {
             <title>Pitch Wise</title>
           </Head>
           <div className="cover-div"></div>
+          <div className="logo"></div>
           <div className={celebrity == "" ? "celeb-selection" : "celeb-selection dynamic"}>
             {celebrity == "" && <h1>Pitch Generator</h1>}
             <div>
@@ -218,7 +218,7 @@ const Home = () => {
           {apiOutput && <Investors investors={investors}></Investors>}
           {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>}
           {/* <Editor/> */}
-          <Samples/>
+          {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray}/>}
         </div>
       </div>
       {/* </div>} */}

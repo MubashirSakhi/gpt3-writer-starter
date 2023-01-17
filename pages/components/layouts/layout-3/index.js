@@ -12,7 +12,7 @@ const Layout3 = (props) => {
                         <p>{props.description}</p>
                     </div>
                 </Col>
-                <Col md={6} className={Classes.layoutImage} style={{backgroundImage: `url(${props.image})`}}>
+                <Col md={6} className={Classes.layoutImage} style={{backgroundImage: `url(${props.image || '/unicorn.png'})`}}>
                     
                 </Col>
             </Row>
