@@ -7,7 +7,7 @@ const Layout3 = (props) => {
         < Container className={Classes.container} >
             <Row className={Classes.row}>
                 <Col md={6} className={Classes.column}>
-                    <div className={Classes.content}>
+                    <div style={{fontFamily:props.slideFont}} className={Classes.content}>
                         <h1>{props.title}</h1>
                         <p>{props.description}</p>
                     </div>

@@ -37,7 +37,29 @@
     justify-content: center;
     align-items: center;
 }
+.fontDropDown{
+    background-color: black;
+    text-align: left;
+    padding:10px;
+}
+.dropdown{
+    background-color: black;
+    box-shadow: none;
+    border: none;
 
+    
+}
+.dropdown button{
+    background-color: rgb(255, 79, 18);
+    padding:5px 40px;
+   
+}
+.fontSelector{
+    padding:10px;
+}
+.fontSelector .select{
+    width:80%;
+}
 .generateBox {
     background-color: black;
     text-align: center;

@@ -10,7 +10,7 @@ const Layout4 = (props) => {
             <div className={Classes.shadow}></div>
             <Row className={[Classes.row, Classes.layoutImage].join(" ")} style={{backgroundImage: `url(${props.image || '/unicorn.png'})`}}>
                 <Col md={{span:8, offset:2}} className={Classes.column}>
-                    <div className={Classes.content}>
+                    <div style={{fontFamily:props.slideFont}} className={Classes.content}>
                         <h1>{props.title}</h1>
                         <p>{props.description}</p>
                     </div>

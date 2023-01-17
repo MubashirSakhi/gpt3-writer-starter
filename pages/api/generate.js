@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const basePromptPrefix = `Write a startup pitch in the style of Samuel L. Jackson for the idea below. Keeping in mind the idea is pitch to pre seed investor to raise first round of money for the startup.
+const basePromptPrefix = `Write a very brief startup pitch in the style of Samuel L. Jackson for the idea below. Keeping in mind the idea is pitch to pre seed investor to raise first round of money for the startup.
 Idea:
 `;
 const generateAction = async (req, res) => {

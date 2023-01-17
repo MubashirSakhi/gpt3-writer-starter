@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import Carousel from 'react-bootstrap/Carousel';
 import Classes from './samples.module.css';
 import Layouts from './components/layouts';
+import Form from 'react-bootstrap/Form';
+
 const dummyData = [
     {
         title: 'Introduction',
@@ -41,6 +45,19 @@ const dummyData = [
     }
 
 ]
+const fontStyles = [
+    "Manrope",
+    "Changa",
+    "Sen",
+    "Montserrat",
+    "Sofia Sans",
+    "Open Sans",
+    "Poppins",
+    "Oswald",
+    "Roboto Mono",
+    "Raleway",
+    "Sofia Sans Condensed"
+]
 const Samples = (props) => {
     const [slides, setSlides] = useState([]);
     const [active, setActive] = useState(0);
@@ -48,7 +65,8 @@ const Samples = (props) => {
     const [isImageGenerating, setImageGenerating] = useState(false);
     const [isRephrasing, setIsRephrasing] = useState(false);
     const [imagePrompt, setImagePrompt] = useState("");
-
+    const [slideFont, setSlideFont] = useState("Sen");
+    const [fontList, setFontList] = useState([]);
     useEffect(() => {
         // setSlides(dummyData);
         const initialArray = [];
@@ -95,6 +113,8 @@ const Samples = (props) => {
             image: '/kevin.png'
         })
         setSlides(initialArray);
+        setFontList(fontStyles);
+
     }, [])
     const changeLayout = (selectedLayout) => {
         setActiveLayout(selectedLayout);
@@ -162,8 +182,15 @@ const Samples = (props) => {
     const handlePromptChange = (event) => {
         setImagePrompt(event.target.value);
     }
-    return (
-        <Container>
+    const selectFont = (fontStyle) => {
+        setSlideFont(fontStyle);
+    }
+    const onSelectFont = (e) => {
+        console.log("wtf: " + e.target.value);
+        setSlideFont(e.target.value)
+    }
+    if (slides.length > 0) {
+        return (<Container>
             <Row>
                 <Col md={2} className={Classes.layoutSelector}>
                     <h3 className={Classes.heading}>Select Layouts</h3>
@@ -184,20 +211,41 @@ const Samples = (props) => {
                     </div>
                 </Col>
                 <Col md={10}>
-                    <div className={[Classes.generateBox,Classes.rephraseBox].join(" ")}>
-                        <div className="prompt-buttons">
+                    <Row className={[Classes.generateBox, Classes.rephraseBox].join(" ")}>
+                        {/* <Col md={3} className={Classes.fontDropDown}>
+                            <div>
+                                <DropdownButton id="dropdown-basic-button" title="Slide Font" className={Classes.dropdown}>
+                                    {fontList.map((x, i) => {
+                                        return <Dropdown.Item as="button" onClick={() => selectFont(x)} >{x}</Dropdown.Item>
+                                    })}
+                                </DropdownButton>
+                            </div>
+                        </Col> */}
+                        <Col md={6} className={Classes.fontSelector}>
+                            <Form.Select aria-label="Default select example" onChange={onSelectFont}>
+                                {fontList.map((x,i)=>{
+                                   return <option key={i} value={x}>{x}</option>
+                                })}
+                            </Form.Select>
+                        </Col>
+                        <Col md={6}>
+                            <div >
+                                <div className="prompt-buttons">
 
-                            <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
-                                {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
-                            </a>
-                        </div>
-                    </div>
+                                    <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
+                                        {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
+                                    </a>
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+
 
                     <Carousel className={Classes.carousel} interval="10000000" onSelect={handleSelect}>
                         {slides.map((slide, index) => {
                             return (
                                 <Carousel.Item key={index} className={Classes.carouselItem}>
-                                    <Layouts layout={slide.layout} title={slide.title} description={slide.description} image={slide.image} />
+                                    <Layouts slideFont={slideFont} layout={slide.layout} title={slide.title} description={slide.description} image={slide.image} />
                                 </Carousel.Item>
                             )
                         })}
@@ -209,11 +257,11 @@ const Samples = (props) => {
                 <Col md={{ span: 8, offset: 2 }}>
                     <div className={Classes.generateBox}>
                         {/* {active !== 0 && <div className="prompt-buttons">
-
-                            <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
-                                {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
-                            </a>
-                        </div>} */}
+    
+                                <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
+                                    {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
+                                </a>
+                            </div>} */}
                         {slides[active].layout !== 1 && slides[active].layout !== 2 && <div>
                             <input type="text" placeholder="Type prompt to generate new image for this slide" onChange={handlePromptChange} />
                             <div className="prompt-buttons">
@@ -226,9 +274,15 @@ const Samples = (props) => {
                     </div>
                 </Col>
             </Row>
-        </Container>
+        </Container>)
+    }
+    else {
+        return <></>;
+    }
 
-    )
+
+
+
 }
 
 export default Samples;
