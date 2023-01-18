@@ -115,7 +115,7 @@ const Samples = (props) => {
         setSlides(initialArray);
         setFontList(fontStyles);
 
-    }, [])
+    }, [props])
     const changeLayout = (selectedLayout) => {
         setActiveLayout(selectedLayout);
         const tempSlides = slides.map((s, i) => {
@@ -157,27 +157,34 @@ const Samples = (props) => {
         setIsRephrasing(false);
     }
     const generateImg = async () => {
-        setImageGenerating(true);
-        const changeImage = await fetch('/api/slides', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ text: imagePrompt }),
-        });
-        const data = await changeImage.json();
-        const base64Image = data.generatedImage.base64;
-        const generatedImage = `data:image/png;base64,${base64Image}`;
-        const tempSlides = slides.map((s, i) => {
-            if (i == active) {
-                return { ...s, image: generatedImage }
-            }
-            else {
-                return s;
-            }
-        })
-        setSlides(tempSlides);
-        setImageGenerating(false);
+        try{
+            setImageGenerating(true);
+            const changeImage = await fetch('/api/slides', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: imagePrompt }),
+            });
+            const data = await changeImage.json();
+            const base64Image = data.generatedImage.base64;
+            const generatedImage = `data:image/png;base64,${base64Image}`;
+            const tempSlides = slides.map((s, i) => {
+                if (i == active) {
+                    return { ...s, image: generatedImage }
+                }
+                else {
+                    return s;
+                }
+            })
+            setSlides(tempSlides);
+            setImageGenerating(false);
+        }
+        catch(err){
+            console.log("error: " + err);
+            setImageGenerating(false);
+        }
+       
     }
     const handlePromptChange = (event) => {
         setImagePrompt(event.target.value);

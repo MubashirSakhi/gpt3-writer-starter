@@ -14,8 +14,8 @@ const slides = async (req, res) => {
     data: {
       "cfg_scale": 7,
       "clip_guidance_preset": "FAST_BLUE",
-      "height": 1062,
-      "width": 600,
+      "height": 512,
+      "width": 512,
       "samples": 1,
       "steps": 50,
       "text_prompts": [
@@ -33,11 +33,11 @@ const slides = async (req, res) => {
           "weight": 1
         },
         {
-          "text": "By disney",
+          "text": "By disney.",
           "weight": 0.8
         },
         {
-          "text": "words and sentences",
+          "text": "words and Sentences",
           "weight": -1.0
         }
 
@@ -48,12 +48,12 @@ const slides = async (req, res) => {
   if (slideImage.status == 200) {
     res.status(200).json({ generatedImage: slideImage.data.artifacts[0] });
   }
-  else if (response.status === 503) {
-    const json = await response.json();
+  else if (slideImage.status === 503) {
+    const json = await slideImage.json();
     res.status(503).json(json);
   } else {
-    const json = await response.json();
-    res.status(response.status).json({ error: response.statusText });
+    const json = await slideImage.json();
+    res.status(slideImage.status).json({ error: slideImage.statusText });
   }
 };
 export default slides;

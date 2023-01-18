@@ -216,7 +216,7 @@ const Home = () => {
           }
           {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
           {apiOutput && <Investors investors={investors}></Investors>}
-          {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>}
+          {/* {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>} */}
           {/* <Editor/> */}
           {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray}/>}
         </div>
