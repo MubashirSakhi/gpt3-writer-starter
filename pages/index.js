@@ -8,7 +8,7 @@ import Presentation from './presentation';
 import Investors from './investors';
 import Slides from './slides';
 import * as ga from '../lib/ga';
-import Header from '../components/Header';
+// import Header from '../components/Header';
 import { useSession } from 'next-auth/react';
 import Editor from './components/editor';
 import Samples from './samples';
