@@ -1,4 +1,4 @@
-import ExampleTheme from "./ExampleTheme";
+import ExampleTheme from "../../components/ExampleTheme";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
