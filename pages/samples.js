@@ -6,42 +6,45 @@ import Carousel from 'react-bootstrap/Carousel';
 import Classes from './samples.module.css';
 import Layouts from './components/layouts';
 import Form from 'react-bootstrap/Form';
+import { UNICORN } from "../components/media";
+import generatePresentation  from "../components/generatePresentation";
 
 const dummyData = [
     {
         title: 'Introduction',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 1
+        layout: 1,
     },
     {
         title: 'Problem',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 3,
-        image: '/unicorn.png'
+        image: UNICORN
     },
     {
         title: 'Solution',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 4,
+        image: UNICORN
 
     },
     {
         title: 'Product',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 2,
-        image: '/unicorn.png'
+        image: UNICORN
     },
     {
         title: 'Market Competition',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 5,
-        image: '/unicorn.png'
+        image:UNICORN
     },
     {
         title: 'Revenue Model',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 5,
-        image: '/unicorn.png'
+        image: UNICORN
     }
 
 ]
@@ -74,48 +77,48 @@ const Samples = (props) => {
             title: 'Introduction',
             description: props.idea,
             layout: 1,
-            image: '/unicorn.png'
+            image: `data:image/png;base64,${UNICORN}`
         })
         initialArray.push({
             title: 'Problem',
             description: props.slides[0],
             layout: 1,
-            image: '/unicorn.png'
+            image: UNICORN
         })
         initialArray.push({
             title: 'Solution',
             description: props.slides[1],
             layout: 3,
-            image: '/unicorn.png'
+            image: UNICORN
         })
         initialArray.push({
             title: 'Product',
             description: props.slides[2],
             layout: 4,
-            image: '/unicorn.png'
+            image: UNICORN
         })
         initialArray.push({
             title: 'Market Competition',
             description: props.slides[3],
             layout: 3,
-            image: '/unicorn.png'
+            image: UNICORN
         })
         initialArray.push({
             title: 'Revenue',
             description: props.slides[4],
             layout: 5,
-            image: '/unicorn.png'
+            image: UNICORN
         })
         initialArray.push({
             title: 'Thanks',
             description: props.slides[5],
             layout: 4,
-            image: '/kevin.png'
+            image: UNICORN
         })
         setSlides(initialArray);
         setFontList(fontStyles);
 
-    }, [props])
+    }, [props.slides])
     const changeLayout = (selectedLayout) => {
         setActiveLayout(selectedLayout);
         const tempSlides = slides.map((s, i) => {
@@ -196,9 +199,12 @@ const Samples = (props) => {
         console.log("wtf: " + e.target.value);
         setSlideFont(e.target.value)
     }
+    const downloadSlides = ()=> {
+        generatePresentation(slides,slideFont);
+    }
     if (slides.length > 0) {
         return (<Container>
-            <Row>
+            <Row className={Classes.carouselRow}>
                 <Col md={2} className={Classes.layoutSelector}>
                     <h3 className={Classes.heading}>Select Layouts</h3>
                     <div className={activeLayout == 1 ? Classes.activeLayout : ''} onClick={() => changeLayout(1)} style={{ backgroundImage: `url('/layouts/layout1.png')` }}>
@@ -241,6 +247,9 @@ const Samples = (props) => {
 
                                     <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
                                         {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
+                                    </a>
+                                    <a className='generate-button' onClick={downloadSlides}>
+                                        Download Slides
                                     </a>
                                 </div>
                             </div>

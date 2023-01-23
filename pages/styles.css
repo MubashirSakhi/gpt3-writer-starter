@@ -773,6 +773,13 @@ body {
 .Kevin{
     background: url('/kevin.png') black no-repeat center center;
 }
+.Steve{
+  background: url('/steve.png') black no-repeat center center;
+
+}
+.Bill{
+  background: url('/bill.png') black no-repeat center center;
+}
 .root {
     display: block;
     place-content: center flex-start;

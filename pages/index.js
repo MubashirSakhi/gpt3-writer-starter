@@ -8,10 +8,11 @@ import Presentation from './presentation';
 import Investors from './investors';
 import Slides from './slides';
 import * as ga from '../lib/ga';
-// import Header from '../components/Header';
+import Header from './components/Header';
 import { useSession } from 'next-auth/react';
 import Editor from './components/editor';
 import Samples from './samples';
+import { HYPERLINK_SVG, LOGO_STARLABS, SVG_BASE64, UNITE_PNG, UNICORN } from "../components/media";
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -67,7 +68,7 @@ const Home = () => {
 
       setApiOutput(slides.join("\n"));
       setPitchOutput(pitch);
-      
+
       setslideArray(slides);
 
       // if (slideArray.length <= 1) {
@@ -88,7 +89,9 @@ const Home = () => {
   const celebrityMapping = [
     "Samuel Jackson",
     "Kevin Hart",
-    "Scarlett Johansson"
+    "Scarlett Johansson",
+    "Steve Jobs",
+    "Bill Gates"
   ]
 
   // useEffect(()=> {
@@ -102,21 +105,24 @@ const Home = () => {
     console.log("Slide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
-      slide.addText(slideArray[i], { x: 0, y: 0.8, w: 10, h: 4, fontSize: 24, fill: { color: "F1F1F1" }, align: "center" });
-      slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg", x: 1, y: 2 }; // image: url
+      slide.addText("Introduction", { x: 0.2, y: 0.2, w: 5, h: 1, margin: 4, fontSize: 32, bold: true,fontFace: "Poppins", align: "top" });
+      slide.addText(slideArray[i], { x: 0.2, y: 1, w: 5,h:4, margin: 4, fontSize: 18,fontFace: "Poppins", align: "top" });
+      //slide.addImage({ x: 5, y: 0, w: 5, h: 5.6, data: UNITE_PNG,sizing:{type:"cover"} });
+      slide.background = { data: UNICORN, transparency:50 }; // image: base64 data
+      //slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg", x: 1, y: 2 }; // image: url
       //slide.addImage({ path: "img1.png", x: 1, y: 2 })
 
     }//end of for loop
     pptx.writeFile({ fileName: "Startup-Pitch.pptx" });
 
   }
-  
+
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
   }
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       {/* {session && <div> */}
       <div>
         <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
@@ -134,6 +140,8 @@ const Home = () => {
                 <option value="0">Samuel L. Jackson</option>
                 <option value="1">Kevin Hart</option>
                 <option value="2">Scarlett Johansson</option>
+                <option value="3">Steve Jobs</option>
+                <option value="4">Bill Gates</option>
 
               </select>
             </div>
@@ -218,7 +226,7 @@ const Home = () => {
           {apiOutput && <Investors investors={investors}></Investors>}
           {/* {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>} */}
           {/* <Editor/> */}
-          {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray}/>}
+          {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray} />}
         </div>
       </div>
       {/* </div>} */}

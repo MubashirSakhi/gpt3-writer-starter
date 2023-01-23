@@ -1,0 +1,30 @@
+.header {
+    height: 100px;
+}
+
+.row {
+    width: 100%;
+}
+
+.logo {
+    text-align: left;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navBtn {
+    text-align: right;
+
+}
+
+.navBtn a {
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    background-color:rgb(255, 79, 18);
+    font-weight: 600;
+
+}
