@@ -15,7 +15,7 @@ export default function Header() {
   }
   return (
     <div className={Classes.header}>
-      <Container>
+      <Container className={Classes.container}>
         <Row className={Classes.row}>
           <Col md={{ span: 6 }} className={Classes.logo}>
             <Link href='/'>

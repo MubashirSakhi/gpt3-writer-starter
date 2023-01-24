@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const dreambooth_base = "https://api.stability.ai/v1alpha/generation/stable-diffusion-512-v2-0/text-to-image"
-
+//const dreambooth_base = "https://api.stability.ai/v1alpha/generation/stable-diffusion-512-v2-0/text-to-image"
+const dreambooth_base = "https://api.stability.ai/v1alpha/generation/stable-diffusion-v1-5/text-to-image"
 const slides = async (req, res) => {
   const slideImage = await axios({
     method: 'post',
@@ -17,6 +17,7 @@ const slides = async (req, res) => {
       "height": 512,
       "width": 512,
       "samples": 1,
+      "sampler":"K_DPM_2_ANCESTRAL",
       "steps": 50,
       "text_prompts": [
         {

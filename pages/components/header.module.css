@@ -1,7 +1,9 @@
 .header {
-    height: 100px;
+    height: 80px;
 }
-
+.container{
+    padding:20px;
+}
 .row {
     width: 100%;
 }
