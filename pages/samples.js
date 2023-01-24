@@ -77,7 +77,7 @@ const Samples = (props) => {
             title: 'Introduction',
             description: props.idea,
             layout: 1,
-            image: `data:image/png;base64,${UNICORN}`
+            image: UNICORN
         })
         initialArray.push({
             title: 'Problem',
@@ -206,7 +206,7 @@ const Samples = (props) => {
         return (<Container>
             <Row className={Classes.carouselRow}>
                 <Col md={2} className={Classes.layoutSelector}>
-                    <h3 className={Classes.heading}>Select Layouts</h3>
+                    <h4 className={Classes.heading}>Select Layouts</h4>
                     <div className={activeLayout == 1 ? Classes.activeLayout : ''} onClick={() => changeLayout(1)} style={{ backgroundImage: `url('/layouts/layout1.png')` }}>
                         <h5 className="align-middle">Basic</h5>
                     </div>

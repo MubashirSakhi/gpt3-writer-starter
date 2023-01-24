@@ -13,6 +13,7 @@ import { useSession } from 'next-auth/react';
 import Editor from './components/editor';
 import Samples from './samples';
 import { HYPERLINK_SVG, LOGO_STARLABS, SVG_BASE64, UNITE_PNG, UNICORN } from "../components/media";
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
@@ -105,10 +106,10 @@ const Home = () => {
     console.log("Slide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
-      slide.addText("Introduction", { x: 0.2, y: 0.2, w: 5, h: 1, margin: 4, fontSize: 32, bold: true,fontFace: "Poppins", align: "top" });
-      slide.addText(slideArray[i], { x: 0.2, y: 1, w: 5,h:4, margin: 4, fontSize: 18,fontFace: "Poppins", align: "top" });
+      slide.addText("Introduction", { x: 0.2, y: 0.2, w: 5, h: 1, margin: 4, fontSize: 32, bold: true, fontFace: "Poppins", align: "top" });
+      slide.addText(slideArray[i], { x: 0.2, y: 1, w: 5, h: 4, margin: 4, fontSize: 18, fontFace: "Poppins", align: "top" });
       //slide.addImage({ x: 5, y: 0, w: 5, h: 5.6, data: UNITE_PNG,sizing:{type:"cover"} });
-      slide.background = { data: UNICORN, transparency:50 }; // image: base64 data
+      slide.background = { data: UNICORN, transparency: 50 }; // image: base64 data
       //slide.addImage = { path: "https://i.pinimg.com/564x/23/d0/fa/23d0fa002b5bbfa8ad82f1d174031554.jpg", x: 1, y: 2 }; // image: url
       //slide.addImage({ path: "img1.png", x: 1, y: 2 })
 
@@ -125,12 +126,13 @@ const Home = () => {
       <Header />
       {/* {session && <div> */}
       <div>
-        <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
+        <div>
           <Head>
             <title>Pitch Wise</title>
           </Head>
           <div className="cover-div"></div>
           <div className="logo"></div>
+          <div className={celebrity == "" ? "root" : `root ${celebrityMapping[celebrity].split(' ')[0]}`}>
           <div className={celebrity == "" ? "celeb-selection" : "celeb-selection dynamic"}>
             {celebrity == "" && <h1>Pitch Generator</h1>}
             <div>
@@ -179,8 +181,19 @@ const Home = () => {
                   </a>
                 </div>
                 {/* New code I added here */}
-                {apiOutput && (
-                  <div className="output">
+               
+              </div>
+
+            </div>
+          }
+          </div>
+          
+          {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
+          {apiOutput && (
+            <div className="contianer">
+              <Container>
+                <Row>
+                  <Col xs={{span:6,offset:3}}>
                     <div className="output-header-container">
                       <div className="output-header">
                         <h3>Pitch</h3>
@@ -189,44 +202,40 @@ const Home = () => {
                     <div className="output-content">
                       <p>{pitchOutput}</p>
                     </div>
-                    <div className="output-header-container">
-                      <div className="output-header">
-                        <h3>Slides</h3>
-                      </div>
-                    </div>
-                    <div className="output-content">
-                      <p>{apiOutput}</p>
-                    </div>
-                    <div className="prompt-buttons">
-                      <a
-                        className='generate-button'
-                        onClick={downloadSlides}
-                      >
-                        <div className="generate">
-                          <p>Download Slides</p>
-                        </div>
-                      </a>
-                      {/* <a
-                    className='generate-button'
-                    onClick={downloadInsta}
-                  >
-                    <div className="generate">
-                      <p>Download Insta Story</p>
-                    </div>
-                  </a> */}
-                    </div>
-
-                  </div>
-                )}
-              </div>
+                  </Col>
+                </Row>
+              </Container>
 
             </div>
-          }
-          {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
+          )}
+          {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray} />}
           {apiOutput && <Investors investors={investors}></Investors>}
           {/* {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>} */}
           {/* <Editor/> */}
-          {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray} />}
+
+          {apiOutput && <div className='feedbackForm'>
+            <Container>
+              <Row>
+                <Col md={{span:6,offset:3}}>
+                  <p>Pitchwise is free while in beta. All we ask is that you share your feedback with us so that we can build an amazing product for you. </p>
+                  <a className='generate-button'>Share Feedback</a>
+                </Col>
+              </Row>
+            </Container>
+            
+          </div>}
+          <div className='footer'>
+            <Container>
+              <Row>
+                <Col md={6} className="copyright">
+                © Pitchwise. All rights reserved.
+                </Col>
+                <Col md={6} className="social-links">
+                <a href="instagram.com">Instagram</a> | <a href="twitter.com">Twitter</a> | <a href="linkedin.com">Linkedin</a> 
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
       </div>
       {/* </div>} */}

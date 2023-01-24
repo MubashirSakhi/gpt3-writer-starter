@@ -997,7 +997,9 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: #E4FE21;
+    color:black;
+    font-weight: bold;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -1010,6 +1012,7 @@ textarea {
     text-decoration: none;
     will-change: transform;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .generate {
@@ -1022,9 +1025,11 @@ textarea {
 }
 
 .generate p {
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
+    color:black;
+    font-weight: bold;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .loading {
@@ -1245,7 +1250,33 @@ textarea {
   animation: rotation 1s linear infinite;
 }
  
-
+.feedbackForm{
+  color:white;
+  font-weight: bold;
+  text-align: center;
+}
+.feedbackForm .row{
+  width: 100%;
+}
+.feedbackForm a{
+  width:200px;
+  margin:0 auto;
+  align-items: center;
+}
+.footer .row{
+  width: 100%;
+  columns: white;
+}
+.footer .copyright{
+  color:white;
+}
+.footer .social-links{
+  text-align: right;
+  color: white;
+}
+.footer a{
+  color:white
+}
 
 @keyframes rotation {
     0% {
