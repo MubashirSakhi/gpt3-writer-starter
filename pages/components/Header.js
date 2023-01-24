@@ -19,7 +19,7 @@ export default function Header() {
         <Row className={Classes.row}>
           <Col md={{ span: 6,offset:3 }} className={Classes.logo}>
             <Link href='/'>
-              <img src="/pitchwise_logo.png" />
+              <img src="/pitchwiselogo.png" />
             </Link>
           </Col>
           {/* <Col md={{ span: 6 }} className={Classes.navBtn}>
