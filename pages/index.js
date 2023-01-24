@@ -218,7 +218,7 @@ const Home = () => {
               <Row>
                 <Col md={{span:6,offset:3}}>
                   <p>Pitchwise is free while in beta. All we ask is that you share your feedback with us so that we can build an amazing product for you. </p>
-                  <a className='generate-button'>Share Feedback</a>
+                  <a className='generate-button' href="https://tally.so/r/mKpr2g">Share Feedback</a>
                 </Col>
               </Row>
             </Container>
@@ -231,7 +231,7 @@ const Home = () => {
                 © Pitchwise. All rights reserved.
                 </Col>
                 <Col md={6} className="social-links">
-                <a href="instagram.com">Instagram</a> | <a href="twitter.com">Twitter</a> | <a href="linkedin.com">Linkedin</a> 
+                <a href="https://www.instagram.com/pitchwiseai/">Instagram</a> | <a href="https://twitter.com/pitchwiseai">Twitter</a> | <a href="linkedin.com">Linkedin</a> 
                 </Col>
               </Row>
             </Container>
