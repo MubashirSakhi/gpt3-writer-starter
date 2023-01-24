@@ -17,15 +17,15 @@ export default function Header() {
     <div className={Classes.header}>
       <Container className={Classes.container}>
         <Row className={Classes.row}>
-          <Col md={{ span: 6 }} className={Classes.logo}>
+          <Col md={{ span: 6,offset:3 }} className={Classes.logo}>
             <Link href='/'>
               <img src="/pitchwise_logo.png" />
             </Link>
           </Col>
-          <Col md={{ span: 6 }} className={Classes.navBtn}>
+          {/* <Col md={{ span: 6 }} className={Classes.navBtn}>
             {session && <Link href="#" onClick={handleSignout} className="btn-signin">Sign out</Link>}
             {!session && <Link href="#" onClick={handleSignin} className="btn-signin">Sign in</Link>}
-          </Col>
+          </Col> */}
         </Row>
       </Container>
 

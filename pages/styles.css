@@ -1244,7 +1244,7 @@ textarea {
   height: 18px;
   border-radius: 50%;
   display: inline-block;
-  border-top: 2px solid #FFF;
+  border-top: 2px solid black;
   border-right: 2px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;

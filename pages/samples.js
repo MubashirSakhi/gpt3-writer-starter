@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Classes from './samples.module.css';
 import Layouts from './components/layouts';
 import Form from 'react-bootstrap/Form';
-import { UNICORN } from "../components/media";
+import { DRONE1,DRONE2,DRONE3,UNICORN } from "../components/media";
 import generatePresentation  from "../components/generatePresentation";
 
 const dummyData = [
@@ -19,7 +19,7 @@ const dummyData = [
         title: 'Problem',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 3,
-        image: UNICORN
+        image: DRONE1
     },
     {
         title: 'Solution',
@@ -77,43 +77,43 @@ const Samples = (props) => {
             title: 'Introduction',
             description: props.idea,
             layout: 1,
-            image: UNICORN
+            image: DRONE1
         })
         initialArray.push({
             title: 'Problem',
             description: props.slides[0],
             layout: 1,
-            image: UNICORN
+            image: DRONE2
         })
         initialArray.push({
             title: 'Solution',
             description: props.slides[1],
             layout: 3,
-            image: UNICORN
+            image: DRONE3
         })
         initialArray.push({
             title: 'Product',
             description: props.slides[2],
             layout: 4,
-            image: UNICORN
+            image: DRONE1
         })
         initialArray.push({
             title: 'Market Competition',
             description: props.slides[3],
             layout: 3,
-            image: UNICORN
+            image: DRONE2
         })
         initialArray.push({
             title: 'Revenue',
             description: props.slides[4],
             layout: 5,
-            image: UNICORN
+            image: DRONE3
         })
         initialArray.push({
             title: 'Thanks',
             description: props.slides[5],
             layout: 4,
-            image: UNICORN
+            image: DRONE1
         })
         setSlides(initialArray);
         setFontList(fontStyles);
