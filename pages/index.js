@@ -12,7 +12,7 @@ import Header from './components/Header';
 import { useSession } from 'next-auth/react';
 import Editor from './components/editor';
 import Samples from './samples';
-import { HYPERLINK_SVG, LOGO_STARLABS, SVG_BASE64, UNITE_PNG, UNICORN } from "../components/media";
+// import { HYPERLINK_SVG, LOGO_STARLABS, SVG_BASE64, UNITE_PNG, UNICORN } from "../components/media";
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Home = () => {
