@@ -33,3 +33,28 @@
     background-position: center;
     padding: 0px;
 }
+@media (min-width: 810px) and (max-width: 1199px) {
+    .container .column {
+        padding: 2% 2% 2% 2%;
+    }
+    .content h1{
+        font-size: 36px;
+    }
+    .content p{
+        font-size:16px;
+        line-height: 25px;
+    }
+}
+@media (max-width: 809px) {
+   
+}
+
+@media (max-width: 600px) {
+    .content h1{
+        font-size: 24px;
+    }
+    .content p{
+        font-size:12px;
+        line-height: 25px;
+    }
+}

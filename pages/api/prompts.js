@@ -30,7 +30,7 @@ const celebrityPrompts = [
         "prompts":[
             `Write a startup pitch in the style of Steve Jobs for the idea below. Keeping in mind the idea is pitch to pre seed investor to raise first round of money for the startup.
             Idea:`,
-            `Take idea of the startup below and generate slides for the pain points, solution,production, competition and revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Include Steve Jobs' quote in the last slide.`
+            `Take idea of the startup below and generate slides for the pain points, solution,production, competition and revenue model. Make it feel like a story. Don't just list the points. Go deep into each one and add data points too. Explain why. Add a last slide and Include Steve Jobs' quote in that.`
         
         ]
     },

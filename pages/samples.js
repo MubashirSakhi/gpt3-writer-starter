@@ -6,8 +6,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Classes from './samples.module.css';
 import Layouts from './components/layouts';
 import Form from 'react-bootstrap/Form';
-import { DRONE1,DRONE2,DRONE3,UNICORN } from "../components/media";
-import generatePresentation  from "../components/generatePresentation";
+import { DRONE1, DRONE2, DRONE3, UNICORN } from "../components/media";
+import generatePresentation from "../components/generatePresentation";
 
 const dummyData = [
     {
@@ -38,7 +38,7 @@ const dummyData = [
         title: 'Market Competition',
         description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
         layout: 5,
-        image:UNICORN
+        image: UNICORN
     },
     {
         title: 'Revenue Model',
@@ -160,7 +160,7 @@ const Samples = (props) => {
         setIsRephrasing(false);
     }
     const generateImg = async () => {
-        try{
+        try {
             setImageGenerating(true);
             const changeImage = await fetch('/api/slides', {
                 method: 'POST',
@@ -183,11 +183,11 @@ const Samples = (props) => {
             setSlides(tempSlides);
             setImageGenerating(false);
         }
-        catch(err){
+        catch (err) {
             console.log("error: " + err);
             setImageGenerating(false);
         }
-       
+
     }
     const handlePromptChange = (event) => {
         setImagePrompt(event.target.value);
@@ -199,13 +199,13 @@ const Samples = (props) => {
         console.log("wtf: " + e.target.value);
         setSlideFont(e.target.value)
     }
-    const downloadSlides = ()=> {
-        generatePresentation(slides,slideFont);
+    const downloadSlides = () => {
+        generatePresentation(slides, slideFont);
     }
     if (slides.length > 0) {
         return (<Container>
             <Row className={Classes.carouselRow}>
-                <Col md={2} className={Classes.layoutSelector}>
+                <Col md={3} lg={2} className={Classes.layoutSelector}>
                     <h4 className={Classes.heading}>Select Layouts</h4>
                     <div className={activeLayout == 1 ? Classes.activeLayout : ''} onClick={() => changeLayout(1)} style={{ backgroundImage: `url('/layouts/layout1.png')` }}>
                         <h5 className="align-middle">Basic</h5>
@@ -223,7 +223,7 @@ const Samples = (props) => {
                         <h5>Background Left</h5>
                     </div>
                 </Col>
-                <Col md={10}>
+                <Col md={9} lg={10}>
                     <Row className={[Classes.generateBox, Classes.rephraseBox].join(" ")}>
                         {/* <Col md={3} className={Classes.fontDropDown}>
                             <div>
@@ -234,14 +234,14 @@ const Samples = (props) => {
                                 </DropdownButton>
                             </div>
                         </Col> */}
-                        <Col md={6} className={Classes.fontSelector}>
+                        <Col md={4} lg={6} className={Classes.fontSelector}>
                             <Form.Select aria-label="Default select example" onChange={onSelectFont}>
-                                {fontList.map((x,i)=>{
-                                   return <option key={i} value={x}>{x}</option>
+                                {fontList.map((x, i) => {
+                                    return <option key={i} value={x}>{x}</option>
                                 })}
                             </Form.Select>
                         </Col>
-                        <Col md={6}>
+                        <Col md={8} lg={6}>
                             <div >
                                 <div className="prompt-buttons">
 
@@ -267,29 +267,31 @@ const Samples = (props) => {
                         })}
 
                     </Carousel>
-                </Col>
-            </Row>
-            <Row className={Classes.generateRow}>
-                <Col md={{ span: 8, offset: 2 }}>
-                    <div className={Classes.generateBox}>
-                        {/* {active !== 0 && <div className="prompt-buttons">
+                    <Row className={Classes.generateRow}>
+                        <Col md={{ span: 12 }} lg={{ span: 8, offset: 2 }}>
+                            <div className={Classes.generateBox}>
+                                {/* {active !== 0 && <div className="prompt-buttons">
     
                                 <a className={isRephrasing ? 'generate-button loading' : 'generate-button'} onClick={rephrase}>
                                     {isRephrasing ? <span className="loader"></span> : "Rephrase Text of this Slide"}
                                 </a>
                             </div>} */}
-                        {slides[active].layout !== 1 && slides[active].layout !== 2 && <div>
-                            <input type="text" placeholder="Type prompt to generate new image for this slide" onChange={handlePromptChange} />
-                            <div className="prompt-buttons">
-                                <a className={isImageGenerating ? 'generate-button loading' : 'generate-button'} onClick={generateImg}>
-                                    {isImageGenerating ? <span className="loader"></span> : "Generate"}
-                                </a>
+                                {slides[active].layout !== 1 && slides[active].layout !== 2 && <div>
+                                    <input type="text" placeholder="Type prompt to generate new image for this slide" onChange={handlePromptChange} />
+                                    <div className="prompt-buttons">
+                                        <a className={isImageGenerating ? 'generate-button loading' : 'generate-button'} onClick={generateImg}>
+                                            {isImageGenerating ? <span className="loader"></span> : "Generate"}
+                                        </a>
 
+                                    </div>
+                                </div>}
                             </div>
-                        </div>}
-                    </div>
+                        </Col>
+                    </Row>
                 </Col>
+
             </Row>
+
         </Container>)
     }
     else {

@@ -7,13 +7,14 @@ const generatePresentation = (slides, slideFont) => {
         let slide = pptx.addSlide();
         switch (slides[i].layout) {
             case 1: {
-                slide.addText(slides[i].title, { x: 1, y: 1, w: 8, h: 0.6, margin: 1, fontSize: 32, bold: true, fontFace: slideFont, valign: "top", align: "center",color:"868686" });
-                slide.addText(slides[i].description, { x: 1, y: 1.5, w: 8, h: 4, fontSize: 18, fontFace: slideFont, valign: "top", align: "center" });
+                slide.addText(slides[i].title, { x: 0.2, y: 0.2, w: 8, h: 0.6, margin: 4, fontSize: 32, bold: true, fontFace: slideFont, valign: "top", align: "left",color:"868686"});
+                slide.addText(slides[i].description, { x: 0.2, y: 1, w: 8, h: 4, margin: 1, fontSize: 18, fontFace: slideFont, valign: "top", align: "left"  });
                 break;
             }
             case 2: {
-                slide.addText(slides[i].title, { x: 0.2, y: 0.2, w: 8, h: 0.6, margin: 4, fontSize: 32, bold: true, fontFace: slideFont, valign: "top", align: "left",color:"868686"});
-                slide.addText(slides[i].description, { x: 0.2, y: 1, w: 8, h: 4, margin: 1, fontSize: 18, fontFace: slideFont, valign: "top", align: "left"  });
+                slide.addText(slides[i].title, { x: 1, y: 1, w: 8, h: 0.6, margin: 1, fontSize: 32, bold: true, fontFace: slideFont, valign: "top", align: "center",color:"868686" });
+                slide.addText(slides[i].description, { x: 1, y: 1.5, w: 8, h: 4, fontSize: 18, fontFace: slideFont, valign: "top", align: "center" });
+                
                 break;
             }
             case 3: {

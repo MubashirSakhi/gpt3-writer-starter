@@ -191,7 +191,7 @@ const Investors = (props) => {
 
         <Container>
             <Row className="rowWidth">
-                <Col md={3}>
+                <Col md={4} lg={3}>
                     <div className={Classes.selectorDiv}>
                         <h3>Investor Filter</h3>
                         <Form>
@@ -233,7 +233,7 @@ const Investors = (props) => {
                         </Form>
                     </div>
                 </Col>
-                <Col md={{ span: 8, offset: 1 }}>
+                <Col  md={8} lg={{ span: 8, offset: 1 }}>
                     <h1 style={{ color: "white", fontFamily: "Poppins" }}>Investors you can pitch to</h1>
                     <Table striped bordered hover variant="dark">
                         <thead>

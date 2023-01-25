@@ -35,3 +35,25 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+@media (min-width: 810px) and (max-width: 1199px) {
+    .content h1{
+        font-size: 36px;
+    }
+    .content p{
+        font-size:16px;
+        line-height: 25px;
+    }
+}
+@media (max-width: 809px) {
+   
+}
+
+@media (max-width: 600px) {
+    .content h1{
+        font-size: 24px;
+    }
+    .content p{
+        font-size:12px;
+        line-height: 25px;
+    }
+}

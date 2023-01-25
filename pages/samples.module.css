@@ -94,3 +94,46 @@
     margin: 10px;
     padding: 10px 20px;
 }
+@media (min-width: 810px) and (max-width: 1199px) {
+    .layoutSelector h5{
+        font-size: 16px;
+    }
+    .generateBox input {
+        margin: 10px 20px;
+        padding-top: 10px;
+        font-size: 16px;
+    }
+    
+    .generateBox a {
+        color: black;
+        font-weight: bold;
+        margin: 10px 5px;
+        padding: 10px 5px;
+        font-size: 10px;
+      
+    }
+}
+
+@media (max-width: 809px) {
+   
+}
+
+@media (max-width: 600px) {
+    .layoutSelector h5{
+        font-size: 16px;
+    }
+    .generateBox input {
+        margin: 10px 20px;
+        padding-top: 10px;
+        font-size: 10px;
+    }
+    
+    .generateBox a {
+        color: black;
+        font-weight: bold;
+        margin: 10px 5px;
+        padding: 10px 5px;
+        font-size: 10px;
+      
+    }
+}

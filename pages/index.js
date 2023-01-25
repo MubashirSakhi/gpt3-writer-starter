@@ -193,7 +193,7 @@ const Home = () => {
             <div className="contianer">
               <Container>
                 <Row>
-                  <Col xs={{span:6,offset:3}}>
+                  <Col  xs={{span:10, offset:1}} md={{span:6,offset:3}}>
                     <div className="output-header-container">
                       <div className="output-header">
                         <h3>Pitch</h3>
