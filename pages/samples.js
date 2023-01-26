@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Classes from './samples.module.css';
 import Layouts from './components/layouts';
-import Form from 'react-bootstrap/Form';
 import { DRONE1, DRONE2, DRONE3, UNICORN } from "../components/media";
 import generatePresentation from "../components/generatePresentation";
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 const dummyData = [
     {
@@ -284,6 +285,60 @@ const Samples = (props) => {
                                         </a>
 
                                     </div>
+                                    <Dropdown as={ButtonGroup}>
+                                        <Button variant="success">Advance Options</Button>
+
+                                        <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+
+                                        <Dropdown.Menu className={Classes.dropDownMenu}>
+                                            <Form>
+                                                <Form.Group>
+                                                    <Form.Label>Medium</Form.Label>
+                                                    <Form.Select aria-label="Select Fund Focus">
+                                                        <option value="Digital Art">Digital Art</option>
+                                                        <option value="Digital Art">Illustraion</option>
+                                                        {/* {fundFocusList.map((x, i) => {
+                                                            return <option key={i} value={x}>{x}</option>
+                                                        })} */}
+                                                    </Form.Select>
+                                                </Form.Group>
+
+
+                                                <Form.Group>
+                                                    <Form.Label>Artist Style</Form.Label>
+                                                    <Form.Select aria-label="Select Artist Style">
+                                                        <option value="Digital Art">James Gurney</option>
+                                                        <option value="Digital Art">John Singer Sargent</option>
+                                                    </Form.Select>
+                                                    {/* <Form.Select aria-label="Select Fund Type" onChange={onFundTypeChange}>
+                                                        {fundTypeList.map((x, i) => {
+                                                            return <option key={i} value={x}>{x}</option>
+                                                        })}
+                                                    </Form.Select> */}
+                                                </Form.Group>
+
+
+                                                <Form.Group>
+                                                    <Form.Label>Aesthetics</Form.Label>
+                                                    <Form.Select aria-label="Select Artist Style">
+                                                        <option value="Digital Art">James Gurney</option>
+                                                        <option value="Digital Art">John Singer Sargent</option>
+                                                    </Form.Select>
+                                                    {/* <Form.Select aria-label="Select Fund Stage" onChange={onFundStageChange}>
+                                                        {fundStageList.map((x, i) => {
+                                                            return <option key={i} value={x}>{x}</option>
+                                                        })}
+                                                    </Form.Select> */}
+                                                </Form.Group>
+                                                <div className={["prompt-buttons", Classes.formButton].join(" ")}>
+
+                                                    {/* <a className={isFetching ? 'generate-button loading' : 'generate-button'} onClick={onSubmit}>
+                                                        {isFetching ? <span className="loader"></span> : "Search"}
+                                                    </a> */}
+                                                </div>
+                                            </Form>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </div>}
                             </div>
                         </Col>

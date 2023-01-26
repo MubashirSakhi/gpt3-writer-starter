@@ -2,9 +2,11 @@
     background-color: white;
 
 }
-.carouselRow{
-    width:100%;
+
+.carouselRow {
+    width: 100%;
 }
+
 .carouselItem {
     height: calc(80vw/1.9);
 }
@@ -39,29 +41,35 @@
     justify-content: center;
     align-items: center;
 }
-.fontDropDown{
+
+.fontDropDown {
     background-color: black;
     text-align: left;
-    padding:10px;
+    padding: 10px;
 }
-.dropdown{
+
+.dropdown {
     background-color: black;
     box-shadow: none;
     border: none;
 
-    
+
 }
-.dropdown button{
+
+.dropdown button {
     background-color: #E4FE21;
-    padding:5px 40px;
-   
+    padding: 5px 40px;
+
 }
-.fontSelector{
-    padding:10px;
+
+.fontSelector {
+    padding: 10px;
 }
-.fontSelector .select{
-    width:80%;
+
+.fontSelector .select {
+    width: 80%;
 }
+
 .generateBox {
     background-color: black;
     text-align: center;
@@ -69,9 +77,11 @@
     padding: 5px;
 
 }
+
 .generateRow {
     width: 100%;
 }
+
 .generateBox input {
     width: 80%;
     background-color: transparent;
@@ -94,46 +104,54 @@
     margin: 10px;
     padding: 10px 20px;
 }
+
+.dropDownMenu {
+    width: 400px;
+    padding: 10px 40px;
+    background-color: black;
+    color: white;
+}
+
 @media (min-width: 810px) and (max-width: 1199px) {
-    .layoutSelector h5{
+    .layoutSelector h5 {
         font-size: 16px;
     }
+
     .generateBox input {
         margin: 10px 20px;
         padding-top: 10px;
         font-size: 16px;
     }
-    
+
     .generateBox a {
         color: black;
         font-weight: bold;
         margin: 10px 5px;
         padding: 10px 5px;
         font-size: 10px;
-      
+
     }
 }
 
-@media (max-width: 809px) {
-   
-}
+@media (max-width: 809px) {}
 
 @media (max-width: 600px) {
-    .layoutSelector h5{
+    .layoutSelector h5 {
         font-size: 16px;
     }
+
     .generateBox input {
         margin: 10px 20px;
         padding-top: 10px;
         font-size: 10px;
     }
-    
+
     .generateBox a {
         color: black;
         font-weight: bold;
         margin: 10px 5px;
         padding: 10px 5px;
         font-size: 10px;
-      
+
     }
 }
