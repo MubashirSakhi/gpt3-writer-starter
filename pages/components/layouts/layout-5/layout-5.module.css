@@ -33,6 +33,10 @@
     font-weight: 500;
     color: white
 }
+.content .pitch{
+    font-size:18px;
+    line-height:30px;
+}
 
 .layoutImage {
     height: 100%;

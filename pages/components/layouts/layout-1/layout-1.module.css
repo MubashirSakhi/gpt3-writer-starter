@@ -19,6 +19,10 @@
     font-weight: 500;
     line-height: 40px;
 }
+.content .pitch{
+    font-size:18px;
+    line-height:30px;
+}
 @media (min-width: 810px) and (max-width: 1199px) {
     .content h1{
         font-size: 36px;

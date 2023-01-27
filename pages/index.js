@@ -77,6 +77,8 @@ const Home = () => {
       //   setslideArray(slides.text.split(/([0-9].)|([0-9]:)/));
       // }
       setIsGenerating(false);
+      const element = document.getElementById('pitchbox');
+      element.scrollIntoView({ behavior: 'smooth' });
       //generatePresentation();
     }
     catch (err) {
@@ -195,7 +197,7 @@ const Home = () => {
                 <Row>
                   <Col  xs={{span:10, offset:1}} md={{span:6,offset:3}}>
                     <div className="output-header-container">
-                      <div className="output-header">
+                      <div  id="pitchbox" className="output-header">
                         <h3>Pitch</h3>
                       </div>
                     </div>

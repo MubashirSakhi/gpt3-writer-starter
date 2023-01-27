@@ -9,45 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { DRONE1, DRONE2, DRONE3, UNICORN } from "../components/media";
 import generatePresentation from "../components/generatePresentation";
 
-const dummyData = [
-    {
-        title: 'Introduction',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 1,
-    },
-    {
-        title: 'Problem',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 3,
-        image: DRONE1
-    },
-    {
-        title: 'Solution',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 4,
-        image: UNICORN
 
-    },
-    {
-        title: 'Product',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 2,
-        image: UNICORN
-    },
-    {
-        title: 'Market Competition',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 5,
-        image: UNICORN
-    },
-    {
-        title: 'Revenue Model',
-        description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',
-        layout: 5,
-        image: UNICORN
-    }
-
-]
 const fontStyles = [
     "Manrope",
     "Changa",
@@ -70,8 +32,8 @@ const Samples = (props) => {
     const [imagePrompt, setImagePrompt] = useState("");
     const [slideFont, setSlideFont] = useState("Sen");
     const [fontList, setFontList] = useState([]);
+    const [imageStyle, setImageStyle] = useState("Cyberpunk");
     useEffect(() => {
-        // setSlides(dummyData);
         const initialArray = [];
         initialArray.push({
             title: 'Introduction',
@@ -167,7 +129,7 @@ const Samples = (props) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ text: imagePrompt }),
+                body: JSON.stringify({ text: imagePrompt, aesthetic:imageStyle }),
             });
             const data = await changeImage.json();
             const base64Image = data.generatedImage.base64;
@@ -194,6 +156,9 @@ const Samples = (props) => {
     }
     const selectFont = (fontStyle) => {
         setSlideFont(fontStyle);
+    }
+    const OnSelectImageStyle = ()=>{
+        setImageStyle(e.target.value);
     }
     const onSelectFont = (e) => {
         console.log("wtf: " + e.target.value);
@@ -279,6 +244,18 @@ const Samples = (props) => {
                                 {slides[active].layout !== 1 && slides[active].layout !== 2 && <div>
                                     <input type="text" placeholder="Type prompt to generate new image for this slide" onChange={handlePromptChange} />
                                     <div className="prompt-buttons">
+                                        
+                                        <p className={Classes.imagePromptStyle}>Aesthetics</p>
+                                        <Form.Select aria-label="Default select example" onChannge={OnSelectImageStyle}>
+                                            <option>Open this select menu</option>
+                                            <option value="Cyberpunk">Cyberpunk</option>
+                                            <option value="Fantasy">Fantasy</option>
+                                            <option value="Vaporwave">Vaporwave</option>
+                                            <option value="Steampunk">Steampunk</option>
+                                            <option value="Gothic">Gothic</option>
+                                            <option value="Sci-Fi, futristic">Sci-Fi, futuristic</option>
+                                        </Form.Select>
+                                        
                                         <a className={isImageGenerating ? 'generate-button loading' : 'generate-button'} onClick={generateImg}>
                                             {isImageGenerating ? <span className="loader"></span> : "Generate"}
                                         </a>

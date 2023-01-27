@@ -26,6 +26,10 @@
     font-size: 24px;
     font-weight: 500;
 }
+.content .pitch{
+    font-size:18px;
+    line-height:30px;
+}
 
 .layoutImage {
     background-size: cover;
@@ -44,6 +48,7 @@
         font-size:16px;
         line-height: 25px;
     }
+    
 }
 @media (max-width: 809px) {
    

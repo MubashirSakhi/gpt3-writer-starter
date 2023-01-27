@@ -11,7 +11,7 @@ const Layout5 = (props) => {
                     <div style={{fontFamily:props.slideFont}} className={Classes.content} >
                         <h1>{props.title}</h1>
                         <div className={Classes.gap}></div>
-                        <p>{props.description}</p>
+                        {props.description && <p className={props.description.length > 700 ? Classes.pitch : ""}>{props.description}</p>}
                     </div>
                 </Col>
                 

@@ -9,7 +9,7 @@ const Layout3 = (props) => {
                 <Col md={6} className={Classes.column}>
                     <div style={{fontFamily:props.slideFont}} className={Classes.content}>
                         <h1>{props.title}</h1>
-                        <p>{props.description}</p>
+                        {props.description && <p className={props.description.length > 700 ? Classes.pitch : ""}>{props.description}</p>}
                     </div>
                 </Col>
                 <Col md={6} className={Classes.layoutImage} style={{backgroundImage: `url(${props.image || '/unicorn.png'})`}}>
