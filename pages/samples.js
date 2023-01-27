@@ -247,7 +247,6 @@ const Samples = (props) => {
                                         
                                         <p className={Classes.imagePromptStyle}>Aesthetics</p>
                                         <Form.Select aria-label="Default select example" onChannge={OnSelectImageStyle}>
-                                            <option>Open this select menu</option>
                                             <option value="Cyberpunk">Cyberpunk</option>
                                             <option value="Fantasy">Fantasy</option>
                                             <option value="Vaporwave">Vaporwave</option>
