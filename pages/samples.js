@@ -35,12 +35,12 @@ const Samples = (props) => {
     const [imageStyle, setImageStyle] = useState("Cyberpunk");
     useEffect(() => {
         const initialArray = [];
-        initialArray.push({
-            title: 'Introduction',
-            description: props.idea,
-            layout: 1,
-            image: DRONE1
-        })
+        // initialArray.push({
+        //     title: 'Introduction',
+        //     description: props.idea,
+        //     layout: 1,
+        //     image: DRONE1
+        // })
         initialArray.push({
             title: 'Problem',
             description: props.slides[0],
@@ -72,8 +72,14 @@ const Samples = (props) => {
             image: DRONE3
         })
         initialArray.push({
-            title: 'Thanks',
+            title: 'Ask',
             description: props.slides[5],
+            layout: 5,
+            image: DRONE3
+        })
+        initialArray.push({
+            title: 'Thanks',
+            description: props.slides[6],
             layout: 4,
             image: DRONE1
         })
@@ -188,7 +194,25 @@ const Samples = (props) => {
                         <h5>Background Left</h5>
                     </div>
                 </Col>
-                <Col md={9} lg={10}>
+                {/* <Col xs={3} lg={2} className={[Classes.layoutSelector, Classes.mobileLayout, "d-md-none"].join(" ")}>
+                    <h4 className={Classes.heading}>Select Layouts</h4>
+                    <div className={activeLayout == 1 ? Classes.activeLayout : ''} onClick={() => changeLayout(1)} style={{ backgroundImage: `url('/layouts/mobileleft.png')` }}>
+                        
+                    </div>
+                    <div className={activeLayout == 2 ? Classes.activeLayout : ''} onClick={() => changeLayout(2)} style={{ backgroundImage: `url('/layouts/mobilecenter.png')` }}>
+                        
+                    </div>
+                    <div className={activeLayout == 3 ? Classes.activeLayout : ''} onClick={() => changeLayout(3)} style={{ backgroundImage: `url('/layouts/mobilerightimage.png')` }}>
+                        
+                    </div>
+                    <div className={activeLayout == 4 ? Classes.activeLayout : ''} onClick={() => changeLayout(4)} style={{ backgroundImage: `url('/layouts/mobilecenterimage.png')` }}>
+                        
+                    </div>
+                    <div className={activeLayout == 5 ? Classes.activeLayout : ''} onClick={() => changeLayout(5)} style={{ backgroundImage: `url('/layouts/mobileleftimage.png')` }}>
+                        
+                    </div>
+                </Col> */}
+                <Col sm={9} lg={10}>
                     <Row className={[Classes.generateBox, Classes.rephraseBox].join(" ")}>
                         {/* <Col md={3} className={Classes.fontDropDown}>
                             <div>

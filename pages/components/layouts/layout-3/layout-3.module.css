@@ -48,6 +48,10 @@
         font-size:16px;
         line-height: 25px;
     }
+    .content .pitch{
+        font-size:12px;
+        line-height:30px;
+    }
     
 }
 @media (max-width: 809px) {
@@ -61,5 +65,9 @@
     .content p{
         font-size:12px;
         line-height: 25px;
+    }
+    .content .pitch{
+        font-size:9px;
+        line-height:18px;
     }
 }

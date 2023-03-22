@@ -60,7 +60,7 @@ body {
   .editor-container {
     margin: 20px auto 20px auto;
     border-radius: 2px;
-    max-width: 600px;
+    max-width: 800px;
     color: #000;
     position: relative;
     line-height: 20px;
@@ -485,7 +485,7 @@ body {
     display: inline-block;
     height: 8px;
     width: 8px;
-    background-image: url(//images/icons/chevron-down.svg);
+    background-image: url(/images/icons/chevronDown.svg);
   }
   
   #block-controls button:hover {
@@ -505,27 +505,27 @@ body {
   }
   
   #block-controls span.block-type.paragraph {
-    background-image: url(/images/icons/text-paragraph.svg);
+    background-image: url(/images/icons/textParagraph.svg);
   }
   
   #block-controls span.block-type.h1 {
-    background-image: url(/images/icons/type-h1.svg);
+    background-image: url(/images/icons/typeH1.svg);
   }
   
   #block-controls span.block-type.h2 {
-    background-image: url(/images/icons/type-h2.svg);
+    background-image: url(/images/icons/typeH2.svg);
   }
   
   #block-controls span.block-type.quote {
-    background-image: url(/images/icons/chat-square-quote.svg);
+    background-image: url(/images/icons/chatSquareQuote.svg);
   }
   
   #block-controls span.block-type.ul {
-    background-image: url(/images/icons/list-ul.svg);
+    background-image: url(/images/icons/listUl.svg);
   }
   
   #block-controls span.block-type.ol {
-    background-image: url(/images/icons/list-ol.svg);
+    background-image: url(/images/icons/listOl.svg);
   }
   
   #block-controls span.block-type.code {
@@ -542,6 +542,15 @@ body {
     min-width: 100px;
     min-height: 40px;
     background-color: #fff;
+  }
+  .editor-dropdown{
+    position: absolute !important;
+  }
+  .editor-rephrase{
+    border: none;
+    background-color: transparent;
+    color: black;
+    padding: 0px 10px;
   }
   
   .dropdown .item {
@@ -630,7 +639,7 @@ body {
   }
   
   .link-editor div.link-edit {
-    background-image: url(/images/icons/pencil-fill.svg);
+    background-image: url(/images/icons/pencilFill.svg);
     background-size: 16px;
     background-position: center;
     background-repeat: no-repeat;
@@ -684,39 +693,39 @@ body {
   }
   
   i.undo {
-    background-image: url(/images/icons/arrow-counterclockwise.svg);
+    background-image: url(/images/icons/arrowCounterclockwise.svg);
   }
   
   i.redo {
-    background-image: url(/images/icons/arrow-clockwise.svg);
+    background-image: url(/images/icons/arrowClockwise.svg);
   }
   
   .icon.paragraph {
-    background-image: url(/images/icons/text-paragraph.svg);
+    background-image: url(/images/icons/textParagraph.svg);
   }
   
   .icon.large-heading,
   .icon.h1 {
-    background-image: url(/images/icons/type-h1.svg);
+    background-image: url(/images/icons/typeH1.svg);
   }
   
   .icon.small-heading,
   .icon.h2 {
-    background-image: url(/images/icons/type-h2.svg);
+    background-image: url(/images/icons/typeH2.svg);
   }
   
   .icon.bullet-list,
   .icon.ul {
-    background-image: url(/images/icons/list-ul.svg);
+    background-image: url(/images/icons/listUl.svg);
   }
   
   .icon.numbered-list,
   .icon.ol {
-    background-image: url(/images/icons/list-ol.svg);
+    background-image: url(/images/icons/listOl.svg);
   }
   
   .icon.quote {
-    background-image: url(/images/icons/chat-square-quote.svg);
+    background-image: url(/images/icons/chatSquareQuote.svg);
   }
   
   .icon.code {
@@ -724,19 +733,19 @@ body {
   }
   
   i.bold {
-    background-image: url(/images/icons/type-bold.svg);
+    background-image: url(/images/icons/typeBold.svg);
   }
   
   i.italic {
-    background-image: url(/images/icons/type-italic.svg);
+    background-image: url(/images/icons/typeItalic.svg);
   }
   
   i.underline {
-    background-image: url(/images/icons/type-underline.svg);
+    background-image: url(/images/icons/typeUnderline.svg);
   }
   
   i.strikethrough {
-    background-image: url(/images/icons/type-strikethrough.svg);
+    background-image: url(/images/icons/typeStrikethrough.svg);
   }
   
   i.code {
@@ -748,11 +757,11 @@ body {
   }
   
   i.left-align {
-    background-image: url(/images/icons/text-left.svg);
+    background-image: url(/images/icons/textLeft.svg);
   }
   
   i.center-align {
-    background-image: url(/images/icons/text-center.svg);
+    background-image: url(/images/icons/textCenter.svg);
   }
   
   i.right-align {

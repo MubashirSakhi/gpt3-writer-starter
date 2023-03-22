@@ -16,7 +16,8 @@ import { LinkPlugin } from "@lexical/react/LexicalLinkPlugin";
 import { ListPlugin } from "@lexical/react/LexicalListPlugin";
 import { MarkdownShortcutPlugin } from "@lexical/react/LexicalMarkdownShortcutPlugin";
 import { TRANSFORMERS } from "@lexical/markdown";
-
+import {$createHeadingNode, $createQuoteNode} from '@lexical/rich-text';
+import {$createParagraphNode, $createTextNode, $getRoot} from 'lexical';
 import ListMaxIndentLevelPlugin from "../../plugins/ListMaxIndentLevelPlugin";
 import CodeHighlightPlugin from "../../plugins/CodeHighlightPlugin";
 import AutoLinkPlugin from "../../plugins/AutoLinkPlugin";
@@ -32,6 +33,7 @@ const editorConfig = {
   onError(error) {
     throw error;
   },
+  editorState:prePopulatedRichText,
   // Any custom nodes go here
   nodes: [
     HeadingNode,
@@ -47,7 +49,21 @@ const editorConfig = {
     LinkNode
   ]
 };
-
+function prePopulatedRichText(){
+  const root = $getRoot();
+  if (root.getFirstChild() === null) {
+    const heading = $createHeadingNode('h1');
+    heading.append($createTextNode('Pain Point'));
+    root.append(heading);
+    const paragraph2 = $createParagraphNode();
+    paragraph2.append(
+      $createTextNode(
+        'Make sure to check out the various plugins in the toolbar. You can also use #hashtags or @-mentions too!',
+      ),
+    );
+    root.append(paragraph2);
+  }
+}
 export default function Editor() {
   return (
     <LexicalComposer initialConfig={editorConfig}>

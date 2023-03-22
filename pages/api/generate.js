@@ -36,7 +36,8 @@ you:
 “Slide2”: “A web platform where users can rent out their space to host travelers to Save Money when traveling,Make Money when hosting ,Share Culture and local connection to the city”,
 “Slide3”: “Product. A website that lets you search by city, review listings and then decide which place to book.”,
 “Slide4”: “Competition: Hotels, hostels and motels are our competition but we are most affordable and we process online transactions easily”.
-“Slide5”: “Revenue Model: We take a 10% commission on each transaction”     
+“Slide5”: “Revenue Model: We take a 10% commission on each transaction”,
+"Slide6": "Ask: We are asking for half a million dollars for 10% equity in the company"     
 }
 
 ===BEGIN===

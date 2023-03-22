@@ -12,6 +12,7 @@ import Header from './components/Header';
 import { useSession } from 'next-auth/react';
 import Editor from './components/editor';
 import Samples from './samples';
+import Pitch from './components/pitch';
 // import { HYPERLINK_SVG, LOGO_STARLABS, SVG_BASE64, UNITE_PNG, UNICORN } from "../components/media";
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -108,7 +109,7 @@ const Home = () => {
     console.log("Slide length: " + slideArray.length);
     for (let i = 0; i < slideArray.length; i++) {
       let slide = pptx.addSlide();
-      slide.addText("Introduction", { x: 0.2, y: 0.2, w: 5, h: 1, margin: 4, fontSize: 32, bold: true, fontFace: "Poppins", align: "top" });
+      //slide.addText("Introduction", { x: 0.2, y: 0.2, w: 5, h: 1, margin: 4, fontSize: 32, bold: true, fontFace: "Poppins", align: "top" });
       slide.addText(slideArray[i], { x: 0.2, y: 1, w: 5, h: 4, margin: 4, fontSize: 18, fontFace: "Poppins", align: "top" });
       //slide.addImage({ x: 5, y: 0, w: 5, h: 5.6, data: UNITE_PNG,sizing:{type:"cover"} });
       slide.background = { data: UNICORN, transparency: 50 }; // image: base64 data
@@ -191,8 +192,8 @@ const Home = () => {
           </div>
           
           {/* {apiOutput && <Presentation idea={pitchOutput} slides={slideArray} />} */}
-          {apiOutput && (
-            <div className="contianer">
+          {/* {apiOutput && (
+            <div className="container">
               <Container>
                 <Row>
                   <Col  xs={{span:10, offset:1}} md={{span:6,offset:3}}>
@@ -209,7 +210,8 @@ const Home = () => {
               </Container>
 
             </div>
-          )}
+          )} */}
+          {apiOutput && <Pitch pitch={pitchOutput} userInput={userInput}></Pitch>}
           {apiOutput && <Samples userInput={userInput} idea={pitchOutput} slides={slideArray} />}
           {apiOutput && <Investors investors={investors}></Investors>}
           {/* {apiOutput && <Slides userInput={userInput} idea={pitchOutput} slides={slideArray} ></Slides>} */}

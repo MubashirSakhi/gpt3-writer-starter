@@ -23,6 +23,13 @@
     margin: 10px;
     cursor: pointer;
 }
+.mobileLayout{
+}
+.mobileLayout div{
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
 
 .activeLayout {
     font-size: 20px;

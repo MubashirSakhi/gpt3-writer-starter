@@ -64,15 +64,7 @@ const blockTypeToBlockName = {
   quote: "Quote",
   ul: "Bulleted List"
 };
-const toneTypeToBlockName = {
-  inspirational: "Inspirational",
-  formal: "Formal",
-  informal: "Informal",
-  objective: "Objective",
-  persuasive: "Persuasive",
-  playful: "Playful"
 
-};
 function Divider() {
   return <div className="divider" />;
 }
@@ -362,7 +354,6 @@ function BlockOptionsDropdownList({
         const selection = $getSelection();
 
         if ($isRangeSelection(selection)) {
-         // selection = "shit";
           $wrapNodes(selection, () => $createQuoteNode());
         }
       });
@@ -384,7 +375,7 @@ function BlockOptionsDropdownList({
   };
 
   return (
-    <div className="dropdown editor-dropdown" ref={dropDownRef}>
+    <div className="dropdown" ref={dropDownRef}>
       <button className="item" onClick={formatParagraph}>
         <span className="icon paragraph" />
         <span className="text">Normal</span>
@@ -425,10 +416,9 @@ function BlockOptionsDropdownList({
 }
 function ToneOptionsDropdownList({
   editor,
-  toneType,
+  blockType,
   toolbarRef,
-  setShowToneOptionsDropDown,
-  setToneType
+  setShowToneOptionsDropDown
 }) {
   const dropDownRef = useRef(null);
 
@@ -463,44 +453,120 @@ function ToneOptionsDropdownList({
     }
   }, [dropDownRef, setShowToneOptionsDropDown, toolbarRef]);
 
-  const changeTone = (type)=> {
-    setToneType(type);
-    console.log("tone: " + toneType);
+  const formatParagraph = () => {
+    if (blockType !== "paragraph") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createParagraphNode());
+        }
+      });
+    }
     setShowToneOptionsDropDown(false);
-    
-  }
+  };
+
+  const formatLargeHeading = () => {
+    if (blockType !== "h1") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h1"));
+        }
+      });
+    }
+    setShowToneOptionsDropDown(false);
+  };
+
+  const formatSmallHeading = () => {
+    if (blockType !== "h2") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createHeadingNode("h2"));
+        }
+      });
+    }
+    setShowToneOptionsDropDown(false);
+  };
+
+  const formatBulletList = () => {
+    if (blockType !== "ul") {
+      editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND);
+    }
+    setShowToneOptionsDropDown(false);
+  };
+
+  const formatNumberedList = () => {
+    if (blockType !== "ol") {
+      editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND);
+    } else {
+      editor.dispatchCommand(REMOVE_LIST_COMMAND);
+    }
+    setShowToneOptionsDropDown(false);
+  };
+
+  const formatQuote = () => {
+    if (blockType !== "quote") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createQuoteNode());
+        }
+      });
+    }
+    setShowToneOptionsDropDown(false);
+  };
+
+  const formatCode = () => {
+    if (blockType !== "code") {
+      editor.update(() => {
+        const selection = $getSelection();
+
+        if ($isRangeSelection(selection)) {
+          $wrapNodes(selection, () => $createCodeNode());
+        }
+      });
+    }
+    setShowToneOptionsDropDown(false);
+  };
 
   return (
-    <div className="dropdown editor-dropdown" ref={dropDownRef}>
-      <button className="item" onClick={()=>changeTone("inspiritional")}>
+    <div className="dropdown" ref={dropDownRef}>
+      <button className="item" onClick={formatParagraph}>
        
         <span className="text">Inspirational</span>
-        {toneType === "inspiritional" && <span className="active" />}
+        {blockType === "paragraph" && <span className="active" />}
       </button>
-      <button className="item" onClick={()=>changeTone("formal")}>
+      <button className="item" onClick={formatLargeHeading}>
         
         <span className="text">Formal</span>
-        {toneType === "formal" && <span className="active" />}
+        {blockType === "h1" && <span className="active" />}
       </button>
-      <button className="item" onClick={()=>changeTone("informal")}>
+      <button className="item" onClick={formatSmallHeading}>
         
         <span className="text">Informal</span>
-        {toneType === "informal" && <span className="active" />}
+        {blockType === "h2" && <span className="active" />}
       </button>
-      <button className="item" onClick={()=>changeTone("objective")}>
+      <button className="item" onClick={formatBulletList}>
         
         <span className="text">Objective</span>
-        {toneType === "objective" && <span className="active" />}
+        {blockType === "ul" && <span className="active" />}
       </button>
-      <button className="item" onClick={()=>changeTone("persuasive")}>
+      <button className="item" onClick={formatNumberedList}>
         
         <span className="text">Persuasive</span>
-        {toneType === "persuasive" && <span className="active" />}
+        {blockType === "ol" && <span className="active" />}
       </button>
-      <button className="item" onClick={()=>changeTone("playful")}>
+      <button className="item" onClick={formatQuote}>
         
         <span className="text">Playful</span>
-        {toneType === "playful" && <span className="active" />}
+        {blockType === "quote" && <span className="active" />}
       </button>
       
     </div>
@@ -512,13 +578,12 @@ export default function ToolbarPlugin() {
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
   const [blockType, setBlockType] = useState("paragraph");
-  const [toneType, setToneType] = useState("inspirational");
   const [selectedElementKey, setSelectedElementKey] = useState(null);
   const [showBlockOptionsDropDown, setShowBlockOptionsDropDown] = useState(
     false
   );
-  const [codeLanguage, setCodeLanguage] = useState("");
   const [showToneOptionsDropDown, setShowToneOptionsDropDown] = useState(false);
+  const [codeLanguage, setCodeLanguage] = useState("");
   const [isRTL, setIsRTL] = useState(false);
   const [isLink, setIsLink] = useState(false);
   const [isBold, setIsBold] = useState(false);
@@ -629,9 +694,6 @@ export default function ToolbarPlugin() {
     }
   }, [editor, isLink]);
 
- const updateToneType = (type)=> {
-  setToneType(type)
- }
   return (
     <div className="toolbar" ref={toolbarRef}>
       <button
@@ -795,22 +857,21 @@ export default function ToolbarPlugin() {
             }
             aria-label="Formatting Options"
           >
-            {/* <span className={"icon block-type " + toneType} /> */}
-            <span className="text">{toneTypeToBlockName[toneType]}</span>
+            <span className={"icon block-type " + blockType} />
+            <span className="text">{blockTypeToBlockName[blockType]}</span>
             <i className="chevron-down" />
           </button>
           {showToneOptionsDropDown &&
             createPortal(
               <ToneOptionsDropdownList
                 editor={editor}
-                toneType={toneType}
+                blockType={blockType}
                 toolbarRef={toolbarRef}
                 setShowToneOptionsDropDown={setShowToneOptionsDropDown}
-                setToneType={setToneType}
               />,
               document.body
             )}
-          <button className="editor-rephrase" >Rephrase</button>  
+          <button >Rephrase shit</button>  
         </>
       )}
     </div>
